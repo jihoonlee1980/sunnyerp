@@ -1,0 +1,10 @@
+#oracle db server
+driver=oracle.jdbc.driver.OracleDriver
+url= jdbc:oracle:thin:@localhost:1521:orcl
+username=jihoonlee
+password=sunny9917042
+#mysql db server
+mydriver=com.mysql.jdbc.Driver
+myurl=jdbc:mysql://192.168.70.111:3306/songwriter
+myusername=songwriter
+mypassword=a12345

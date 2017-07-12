@@ -1,0 +1,54 @@
+package main_beom.model;
+
+import java.sql.Timestamp;
+
+public class main_jaksaDTO {
+	
+	private int l_seq;
+	private int seq;
+	private String l_title;
+	private String l_content;
+	private String l_file;
+	private String l_picture;
+	
+	public int getL_seq() {
+		return l_seq;
+	}
+	public void setL_seq(int l_seq) {
+		this.l_seq = l_seq;
+	}
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getL_title() {
+		return l_title;
+	}
+	public void setL_title(String l_title) {
+		this.l_title = l_title;
+	}
+	public String getL_content() {
+		return l_content;
+	}
+	public void setL_content(String l_content) {
+		this.l_content = l_content;
+	}
+	public String getL_file() {
+		return l_file;
+	}
+	public void setL_file(String l_file) {
+		this.l_file = l_file;
+	}
+	public String getL_picture() {
+		return l_picture;
+	}
+	public void setL_picture(String l_picture) {
+		this.l_picture = l_picture;
+	}
+	
+	
+	
+}
+//insert into compose (seq,c_title,c_content,c_file,c_date,c_hits,c_picture)values (2,"제목888","888컨텐츠","88영상.png",now(),2,"88사진.jpg");

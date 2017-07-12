@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Welcome</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		
+		<style type="text/css">
+		 #cl-dashboard{display: none;} 
+		</style>
+		<script type="text/javascript">
+		var idx=0;
+		function addFileForm(){
+		    
+		    var tb1 = document.getElementById("file_table");
+		    if(9 >= tb1.rows.length) {
+		     var idx = getObj().parentElement.rowIndex + 1;
+		     //alert(idx);
+		     $("#cnt").val(idx);
+		     var trow= tb1.insertRow(idx);
+		     var uploadOBJ="<tr><td bgcolor='#fff0f5'>이미지</td><td>"+
+		    	 "<input name='upfile' type='file' id='f_id'> <input type=\"button\" class=\"btn btn-success btn-sm\" value=\"추가\" OnClick=\"javascript:addFileForm();\" /> <input type=\"button\" class=\"btn btn-info btn-sm\" value=\"삭제\" OnClick=\"javascript:deleteRow();\" />"+
+		    	 "</td></tr>";
+		     trow.innerHTML = uploadOBJ;
+		    } else {
+		     alert("문서파일은 10개 이상 접수할 수  없습니다.");
+		     return;
+		    }
+		   }
+		   
+		   function getObj()
+		   {
+		       var obj = event.srcElement
+		       while (obj.tagName !='TD') //TD가 나올때까지의 Object추출
+		       {
+		           obj = obj.parentElement
+		       }
+		       return obj
+		   }
+		   
+		   function deleteRow(){
+		    var tb1 = document.getElementById("file_table");
+		   
+		    var idx = getObj().parentElement.rowIndex;
+		   
+		    if(tb1.rows.length-1 !=0){
+		     var tRow = tb1.deleteRow(idx);
+		    }else{
+		      document.getElementById('f_id').select();
+		         document.selection.clear();
+		    }
+		   }
+		
+		   
+		   
+		   
+		 //category1 변경시 이메일주소를 location로 보냄
+		 //직접입력인 경우에는 category 의 기존값을 지우고 포커스 보내기
+
+		 $(function(){
+
+		 $("#category1").change(function(){
+		 	if($(this).val()==" "){
+		 		$("#category").val("");
+		 		$("#category").focus();
+		 	}else{
+		 		$("#category").val($(this).val());
+		 	}
+		 });
+
+		 });
+		   
+		   
+		   
+		</script>
+				
+	</head> 
+	
+	
+
+
+	
+	<body>
+	
+
+
+	
+		<form action="upload.do" enctype="multipart/form-data" method="post">
+ 		<table id="file_table" class="table table-bordered" style="width: 500px;">
+ 		 <tr>
+ 		 	<td style="width: 100px;background: #fff0f5">작성자</td>
+ 		 	<td>
+ 		 		<input type="text" name="writer" class="form-control" value="${sessionScope.m_id_}" readonly="readonly" style="width: 150px;">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td style="width: 100px;background: #fff0f5">제 목</td>
+ 		 	<td>
+ 		 		<input type="text" name="subject" class="form-control" style="width: 300px;">
+ 		 	</td>
+ 		 </tr>
+ 		 
+ 		 
+ 		<tr>
+					<td style="width: 50px;background: #fff0f5">분류</td>
+				<td>
+		<input type="text" name="category" id="category" size="20" class="form-control" required="required" placeholder="직접입력 또는 구분선택">
+		
+			<div class="form-group">
+			
+			<select name="category1" id="category1">
+				<option value=" ">직접입력</option>
+				<option value="사랑">사랑</option>
+				<option value="연애">연애</option>
+				<option value="1">1</option>
+				<option value="2">2</option>	
+				<option value="3">3</option>	
+				<option value="4">4</option>							
+			</select>
+		</div>
+	</td>
+		</tr>
+		
+ 		 <tr>
+ 		 	<td style="width: 100px;background: #fff0f5">내 용</td>
+ 		 	<td>
+ 		 		<textarea rows="5" cols="45" name="content"></textarea>
+ 		 	</td>
+ 		 </tr>
+         <tr>
+          <td style="width: 100px;background: #fff0f5">동영상</td>
+          <td>
+            <input name="upfile" type="file" id="f_id" class="form-control">
+            <input type="button" class="btn btn-success btn-sm" value="추가" 
+            	OnClick="javascript:addFileForm();" />
+            <input type="button" class="btn btn-info btn-sm" value="삭제" 
+            	OnClick="javascript:deleteRow();" />
+          </td>
+         </tr>
+         <tr>
+         	<td style="width: 100px;background: #fff0f5;text-align: center;" colspan="2">
+         		<input type="submit" value="업로드" class="btn btn-info" 
+         		  style="width: 100px;"  >    
+         	</td>
+         </tr>
+      </table>  
+      
+</form>
+	</body>
+	
+	
+	
+</html>

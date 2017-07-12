@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myboard">
+	<select id="countOfMyboard" resultType="int">
+		select count(*) from mysqlboard
+	</select>
+	<insert id="insertOfMyboard" parameterType="mydto">
+		insert into mysqlboard (writer,subject,content,filename,writeday)
+		 values (#{writer},#{subject},#{content},#{filename},now())
+	</insert>
+	<select id="pageingListOfMyboard" parameterType="HashMap" resultType="mydto">
+		select * from mysqlboard order by num desc limit #{start},#{perpage}
+	</select>
+	<select id="dataOfMyboard" parameterType="int" resultType="mydto">
+		select * from mysqlboard where num=#{num}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

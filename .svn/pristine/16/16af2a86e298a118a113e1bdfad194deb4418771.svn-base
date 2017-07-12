@@ -1,0 +1,20 @@
+package mypage.model;
+
+public class SeqDTO {
+	private int seq;
+	private String m_id;
+	
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+	
+}

@@ -1,0 +1,78 @@
+package login.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
+
+import login.model.LoginDAO;
+import mypage.model.MyPageDAO;
+
+@SessionAttributes("m_id")
+@Controller
+public class LoginController {
+	
+	@Autowired
+	private MyPageDAO mypagedao;
+	
+	@Autowired
+	private LoginDAO logindao;
+	
+	@RequestMapping("/loginform.do")
+	public String goLoginForm(){
+		
+		return "/1/login/loginForm";
+	}
+	
+	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	public ModelAndView goLogin(
+			@RequestParam String m_id,
+			@RequestParam String m_pass,
+			HttpSession session
+			){
+		System.out.println("m_id:"+m_id);
+		ModelAndView view = new ModelAndView();
+		boolean loginCheck = logindao.loginCheck(m_id, m_pass);
+		if(loginCheck == true){
+			String m_nick = logindao.searchNick(m_id);
+			session.setAttribute("m_nick", m_nick);
+			session.setAttribute("m_id_", m_id);
+			view.setViewName("/1/login/loginForm");
+//			view.setViewName("redirect:main.do");
+		}else{
+			view.setViewName("/1/login/loginfail");
+		}
+		return view;
+	}
+	
+	@RequestMapping("/logout.do")
+	public ModelAndView logout(HttpSession session){
+		session.removeAttribute("m_nick");
+		session.removeAttribute("m_id_");
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/1/login/loginForm");
+//		view.setViewName("redirect:main.do");
+		return view;
+	}
+	
+	@RequestMapping("/myPageForm.do")
+	public String goMyPage(
+			HttpSession session,
+			Model model
+			){
+		String m_id = (String)session.getAttribute("m_id_");
+		String m_profile = mypagedao.getProfile(m_id);
+
+		model.addAttribute("m_profile",m_profile);
+		return "/1/login/myPageForm";
+	}
+}
+

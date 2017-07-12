@@ -1,0 +1,17 @@
+package mypage.model;
+
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+public class MyPageDAO extends SqlSessionDaoSupport implements MyPageDAO_interface {
+
+	public void insertProfile(MyPageDTO mypageDto) {
+		// TODO Auto-generated method stub
+		getSqlSession().update("updateProfile", mypageDto);
+	}
+	
+	public String getProfile(String m_id) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("getProfile", m_id);
+	}
+
+}

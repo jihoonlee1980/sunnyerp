@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- --------- -->
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<style type="text/css">
+#cl-dashboard {
+	display: none;
+}
+</style>
+
+<script type="text/javascript">
+	function btn_inputid_click(){
+		window.open("idCheckForm.do", "w", "left=100px, top=100px, width=400px, height=200px");
+	}
+	
+	function btn_inputnick_click(){
+		window.open("nickCheckForm.do", "w", "left=100px, top=100px, width=400px, height=200px");
+	}
+</script>
+</head>
+<body>
+	<form action="join.do" method="post">
+		<table id="joinform" class="table table-bordered" style="width: 500px;">
+			<caption style="text-align: center;">[ JOIN ]</caption>
+			<tr>
+				<td style="width: 150px; background: #eeeeee">NICKNAME</td>
+	 		 	<td>
+	 		 		<input type="text" name="m_nick" class="form-control" size="10" style="width: 150px;" required="required" readonly="readonly">
+	 		 		<input type="button" value="input nick" class="btn" onclick="btn_inputnick_click();">
+	 		 	</td>
+			</tr>
+			<tr>
+				<td style="width: 150px; background: #eeeeee">ID</td>
+	 		 	<td>
+	 		 		<input type="text" name="m_id" class="form-control" size="10" style="width: 150px;" required="required" readonly="readonly">
+	 		 		<input type="button" value="input id" class="btn" onclick="btn_inputid_click();">
+	 		 	</td>
+			</tr>
+			<tr>
+				<td style="width: 150px; background: #eeeeee">PASSWORD</td>
+	 		 	<td>
+	 		 		<input type="password" name="m_pass" class="form-control" size="10" style="width: 150px;" required="required">
+	 		 	</td>
+			</tr>
+<!-- 			<tr> -->
+<!-- 				<td style="width: 150px; background: #eeeeee">PASSWORD CHECK</td> -->
+<!-- 	 		 	<td> -->
+<!-- 	 		 		<input type="password" name="passwordcheck" class="form-control" size="10" style="width: 150px;" required="required"> -->
+<!-- 	 		 	</td> -->
+<!-- 			</tr> -->
+			<tr>
+				<td colspan="2" style="text-align: center;">
+					<input type="submit" class="btn" value="JOIN" style="width: 80px;">
+					<input type="button" class="btn" value="BACK" style="width: 80px;" onclick="location.href='loginform.do'">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

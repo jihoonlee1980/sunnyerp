@@ -1,0 +1,6 @@
+package mypage.model;
+
+public interface MyPageDAO_interface {
+	public void insertProfile(MyPageDTO mypageDto);
+	public String getProfile(String m_id);
+}

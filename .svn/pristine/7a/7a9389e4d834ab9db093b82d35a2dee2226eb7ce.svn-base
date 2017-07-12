@@ -1,0 +1,37 @@
+package myboard.model;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+public class MyboardDao extends SqlSessionDaoSupport{
+	public int getTotalcount()
+	{
+		return getSqlSession().selectOne("countOfMyboard");
+	}
+	
+	public void insertMyboard(MyboardDto dto)
+	{
+		getSqlSession().insert("insertOfMyboard", dto);
+	}
+	
+	public List<MyboardDto> getList(int start,int perpage)
+	{
+		HashMap<String, Integer> map=new HashMap<String, Integer>();
+		map.put("start", start);
+		map.put("perpage", perpage);
+		
+		return getSqlSession().selectList("pageingListOfMyboard", map);		
+	}
+	
+	public MyboardDto getData(int num)
+	{
+		return getSqlSession().selectOne("dataOfMyboard", num);
+	}
+}
+
+
+
+
+

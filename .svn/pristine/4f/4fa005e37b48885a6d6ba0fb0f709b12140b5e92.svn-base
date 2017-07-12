@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<c:set var="root" value="<%=request.getContextPath() %>"/>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | Corlate</title>
+	
+	<!-- core CSS -->
+    <link href="${root}/save/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${root}/save/css/animate.min.css" rel="stylesheet">
+    <link href="${root}/save/css/prettyPhoto.css" rel="stylesheet">
+    <link href="${root}/save/css/main.css" rel="stylesheet">
+    <link href="${root}/save/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="${root}/save/ico/favicon.png">
+
+ 	<style type="text/css">
+		 #cl-dashboard{display: none;} 
+	</style>	
+ 		
+		<!-- <style type="text/css">
+	div.a{
+		border: 0px solid gray;
+	}
+	
+	#top{
+		position: absolute; left: 200px; top:10px; width: 1200px;
+		height: 120px; text-align: center;
+		border-bottom: 5px solid pink;
+		
+	}
+	
+	#menu{
+		position: absolute; left: 500px; top:140px; width: 700px;
+		height: 70px; text-align: center;
+	}	
+	#body{
+		position: absolute; left: 300px; top:220px; width: 1200px;
+		height: 560px; padding-left: 200px;
+	}
+	#bottom{
+		position: absolute; left: 300px; top:820px; width: 700px;
+		height: 80px; text-align: center;
+	}	
+</style> -->
+		
+</head> 
+	<body>
+		<div class="a" id="top">
+		<tiles:insertAttribute name="top"/>
+		</div>
+		<%-- <div class="a" id="menu">
+			<tiles:insertAttribute name="menu"/>
+		</div> --%>
+		
+		<div class="a" id="body">
+			<tiles:insertAttribute name="body"/>
+		</div>
+		 <div class="a" id="bottom">
+			<tiles:insertAttribute name="bottom"/>
+		</div> 
+		
+		
+	<script src="${root}/save/js/jquery.js"></script>
+    <script src="${root}/save/js/bootstrap.min.js"></script>
+    <script src="${root}/save/js/jquery.prettyPhoto.js"></script>
+    <script src="${root}/save/js/jquery.isotope.min.js"></script>
+    <script src="${root}/save/js/main.js"></script>
+    <script src="${root}/save/js/wow.min.js"></script>	
+	</body>
+		
+</html>
+

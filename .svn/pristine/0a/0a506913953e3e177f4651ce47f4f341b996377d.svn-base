@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Welcome</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<style type="text/css">
+			html,body{overflow: hidden;}
+		</style>
+	</head> 
+	<body>
+		<h3>메모 내용 수정하기</h3>
+		<form action="answerupdate.do" method="post">
+		  <div class="form-group"> 
+			
+			<input type="text" name="content" style="width: 250px;"
+			required="required" value="${content}">
+		
+			<input type="password" name="pass" size="4" 
+			required="required" placeholder="비밀번호" style="width: 80px;">  
+			
+			<!-- hidden -->
+			<input type="hidden" name="num" value="${num}">
+			<input type="hidden" name="pageNum" value="${pageNum}">
+			<input type="hidden" name="aPage" value="${aPage}">
+			<input type="hidden" name="pk" value="${pk}">
+			
+			<input type="submit" value="메모수정" style="width: 90px;"
+			  class="btn btn-danger btn-sm">
+		  </div>	
+		</form>
+	</body>
+</html>
