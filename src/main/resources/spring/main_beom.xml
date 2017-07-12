@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main_beom">
+
+    <select id="main_selectDataOfBoard" resultType="mjdto">
+   		 select * from mysqlboard order by num desc limit 3
+    </select>
+
+	<select id="main_selectJaksaOfBoard" resultType="msdto">
+		select * from mysqlboard order by num desc limit 3
+	</select>
+	<!-- <select id="countOfAnswer" parameterType="int" resultType="int">
+		select count(*) from answer where num=#{num}
+	</select>
+	
+	<insert id="insertOfAnswer" parameterType="adto">
+		insert into answer values (seq1.nextval,#{num},#{nick},#{content},
+		#{pass},#{ref},#{re_step},#{re_level},now())
+	</insert>
+	<select id="selectDataOfAnswer" parameterType="HashMap" resultType="adto">
+		<![CDATA[
+		select a.* from (select ROWNUM as RNUM,b.* from 
+		(select * from answer where num=#{num} order by ref desc,re_step asc)b)a 
+		where a.RNUM>=#{start} and a.RNUM<=#{end}
+		]]>
+	</select>
+	<select id="contentDataOfAnswer" parameterType="int" resultType="adto">
+		select * from answer where pk=#{pk}
+	</select>
+	
+	<select id="passEqualOfAnswer" parameterType="HashMap" resultType="int">
+		select count(*) from answer where pk=#{pk} and pass=#{pass}
+	</select>
+	<delete id="deleteOfAnswer" parameterType="int">
+		delete from answer where pk=#{pk}
+	</delete>
+	<delete id="deleteNumOfAnswer" parameterType="int">
+		delete from answer where num=#{num}
+	</delete>
+	<update id="updateOfAnswer" parameterType="adto">
+		update answer set content=#{content} where pk=#{pk}
+	</update>
+	<update id="updateRestepOfAnswer" parameterType="HashMap">
+		<![CDATA[
+			update answer set re_step=re_step+1 where ref=#{ref} and re_step>#{re_step}
+		]]>
+	</update>
+	<select id="maxPkOfAnswer" resultType="int">
+		select ifnull(max(pk),0) from answer
+	</select>
+	<select id="selectAllOfAnswer" parameterType="int" resultType="adto">
+		select * from answer where num=#{num} order by ref desc,re_step asc
+	</select> -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

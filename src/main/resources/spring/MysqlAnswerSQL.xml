@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myanswer">
+	<!-- <select id="countOfMyboard" resultType="int">
+		select count(*) from amysqlboard where num=#{num}
+	</select> -->
+	<insert id="ainsertOfMyboard" parameterType="myadto">
+		insert into amysqlboard (num,writer,content,writeday)
+		 values (#{num},#{writer},#{content},now())
+	</insert>
+	<select id="apageingListOfMyboard" parameterType="HashMap" resultType="myadto">
+		select * from amysqlboard where num order by pk
+	</select>
+
+	<select id="adataOfMyboard" parameterType="int" resultType="myadto">
+		select * from amysqlboard where pk=#{pk}
+	</select>
+
+	
+	<!-- <delete id="deleteOfMyboard" parameterType="int">
+		delete from amysqlboard where num=#{num}
+	</delete> -->
+	
+	<!-- <update id="updateOfMyboard" parameterType="myadto">
+		update amysqlboard set content=#{content} where num=#{num}
+	</update> -->
+	
+	
+	
+	
+	<!-- <select id="writerOfMyboard" parameterType="int" resultType="String">
+		select m_nick from member where seq=#{seq}
+	</select> -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

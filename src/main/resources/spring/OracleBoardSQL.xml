@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sample">
+	<select id="countOfBoard" resultType="int">
+		select count(*) from lyrics
+	</select>
+	<select id="sequenceOfBoard" resultType="int">
+		select num from dual
+	</select>
+	<insert id="insertOfBoard" parameterType="bdto">
+		insert into lyrics values (#{seq},#{writer},#{pass},#{subject},
+		#{content},0,now())
+	</insert>
+	<select id="selectDataOfBoard" parameterType="HashMap" resultType="bdto">
+		select * from lyrics order by num desc limit #{start},#{perpage}
+	</select>
+	<select id="contentDataOfBoard" parameterType="int" resultType="bdto">
+		select * from lyrics where num=#{num}
+	</select>
+	<update id="updateReadcountOfBoard" parameterType="int">
+		update lyrics set readcount=readcount+1 where num=#{num}
+	</update>
+	<select id="passEqualOfBoard" parameterType="HashMap" resultType="int">
+		select count(*) from lyrics where num=#{num} and pass=#{pass}
+	</select>
+	<delete id="deleteOfBoard" parameterType="int">
+		delete from lyrics where num=#{num}
+	</delete>
+	<update id="updateOfBoard" parameterType="bdto">
+		update lyrics set writer=#{writer},subject=#{subject},
+		content=#{content} where num=#{num}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

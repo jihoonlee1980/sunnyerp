@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="spring.model.BoardDto" alias="bdto"/>
+		<typeAlias type="spring.model.AnswerDto" alias="adto"/>
+		<typeAlias type="myboard.model.MyboardDto" alias="mydto"/>
+		<typeAlias type="personal.model.PersonalDto" alias="personaldto"/>
+		<typeAlias type="myboard.model.MyboardAnswerDto" alias="myadto"/>
+		<typeAlias type="join.model.JoinDTO" alias="joindto"/>
+		<typeAlias type="community.model.ComuDTO" alias="cdto"/>
+		<typeAlias type="login.model.LoginDTO" alias="logindto"/>
+		<typeAlias type="main_beom.model.main_jakgokDTO" alias="mjdto"/>	
+		<typeAlias type="main_beom.model.main_jaksaDTO" alias="msdto"/>	
+		<typeAlias type="mypage.model.MyPageDTO" alias="mypagedto"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="spring/OracleBoardSQL.xml" />		
+		<mapper resource="spring/OracleAnswerSQL.xml" />
+		<mapper resource="spring/MysqlAnswerSQL.xml" />
+		<mapper resource="spring/MysqlBoardSQL.xml" />
+		<mapper resource="spring/PersonalBoardSQL.xml" />
+		<mapper resource="spring/JoinSQL.xml" />
+		<mapper resource="spring/ComuSQL.xml"/>
+		<mapper resource="spring/LoginSQL.xml"/>
+		<mapper resource="spring/main_beom.xml"/>
+		<mapper resource="spring/MyPageSQL.xml"/>
+	</mappers>
+</configuration>

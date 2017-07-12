@@ -1,0 +1,18 @@
+package spring.model;
+
+import java.util.List;
+
+public interface AnswerDao {
+	public int getRef();
+	public int insertAnswer(AnswerDto dto);
+	public List<AnswerDto> getList(int num,int start,int end);
+	public int getTotalCount(int num);
+	public AnswerDto getData(int pk);
+	public boolean isEqualPass(int pk,String pass);
+	public void deleteAnswer(int pk);
+	public void deleteNumAnswer(int num);	
+	public void updateAnswer(AnswerDto dto);
+	public void updateRestep(int ref,int re_step);
+	public List<AnswerDto> getAllList(int num);
+	
+}

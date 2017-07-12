@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="personal">
+	<!-- <select id="countOfMyboard" resultType="int">
+		select count(*) from personal
+	</select> -->
+	<insert id="insertOfPersonal" parameterType="personaldto">
+		insert into personal (id,name,gender,address,hp,email,grade,department,filename,gaipday) 
+		values (#{id},#{name},#{gender},#{address},#{hp},#{email},#{grade},#{department},#{filename},now())
+	</insert>
+	<select id="pageingListOfPersonal" parameterType="HashMap" resultType="personaldto">
+		select * from personal order by num desc limit 1
+	</select>
+	<select id="dataOfPersonal" parameterType="int" resultType="personaldto">
+		select * from personal where num=#{num}
+	</select>
+	<delete id="deleteOfPersonal" parameterType="int">
+		delete from personal where num=#{num}
+	</delete>
+	
+	<update id="updateOfPersonal" parameterType="personaldto">
+		update personal set gender=#{gender},grade=#{grade},department=#{department},filename=#{filename} where num=#{num}
+	</update>
+	
+	<!-- <update id="updateReadcountOfMyBoard" parameterType="int">
+		update personal set readcount=readcount+1 where num=#{num}
+	</update> -->
+	
+	
+	<select id="writerOfPersonal" parameterType="int" resultType="String">
+		select m_nick from member1 where num=#{num}
+	</select>
+	
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

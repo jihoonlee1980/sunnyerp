@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="join">
+	
+	<select id="idCheckOfJoin" resultType="int" parameterType="String">
+		select count(*) from member1 where m_id=#{m_id}
+	</select>
+	
+	
+	<select id="nickCheckOfJoin" resultType="int" parameterType="String">
+		select count(*) from member1 where m_nick=#{m_nick}
+	</select>
+	
+	
+	<insert id="insertMemberOfJoin" parameterType="joindto">
+		insert into member1 (m_id, m_pass, m_level, m_nick, m_hp, m_email, m_address, gaipday) 
+		values (#{m_id}, #{m_pass}, "sunnyfactory", #{m_nick}, #{m_hp}, #{m_email}, #{m_address}, now())
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

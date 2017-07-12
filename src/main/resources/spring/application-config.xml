@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Uncomment and add your base-package here:
+         <context:component-scan
+            base-package="org.springframework.samples.service"/>  -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	  <property name="locations">
+	  	<value>WEB-INF/db.properties</value>
+	  </property>
+	</bean>
+ 	<!-- oracle -->
+	 <bean id="dataSource"
+      class="org.apache.commons.dbcp.BasicDataSource">
+      	<property name="driverClassName" value="${driver}"/>
+      	<property name="url" value="${url}"/>
+      	<property name="username" value="${username}"/>
+      	<property name="password" value="${password}"/>
+    </bean> 
+
+	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		  <property name="dataSource" ref="dataSource" />  
+		  <property name="configLocation" value="classpath:spring/SqlMapConfig.xml"/>
+	 </bean>
+ 
+	 <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg ref="sqlSessionFactory"/>
+	 </bean>
+	 
+	 <!-- mysql -->
+	 <bean id="mydataSource"
+      class="org.apache.commons.dbcp.BasicDataSource">
+      	<property name="driverClassName" value="${mydriver}"/>
+      	<property name="url" value="${myurl}"/>
+      	<property name="username" value="${myusername}"/>
+      	<property name="password" value="${mypassword}"/>
+    </bean> 
+
+	 <bean id="mysqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		  <property name="dataSource" ref="mydataSource" />  
+		  <property name="configLocation" value="classpath:spring/SqlMapConfig.xml"/>
+	 </bean>
+ 
+	 <bean id="mysqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg ref="mysqlSessionFactory"/>
+	 </bean>
+	 
+	 <!-- dao setting -->
+	<bean id="boardOraDao" class="spring.model.BoardOracleDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>	 
+	<bean id="answerOraDao" class="spring.model.AnswerOracleDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	<bean id="MyboardAnswerDao" class="myboard.model.MyboardAnswerDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>	 	 
+	
+	<bean id="myboardDao" class="myboard.model.MyboardDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
+	<bean id="PersonalDao" class="personal.model.PersonalDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
+	
+	<bean id="joinDAO" class="join.model.JoinDAO">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
+	<bean id="ComuDAO" class="community.model.ComuDAO">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
+	<bean id="loginDAO" class="login.model.LoginDAO">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	<bean id="main_beomDAO" class="main_beom.model.main_jakgokDAO">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	<bean id="mypageDAO" class="mypage.model.MyPageDAO">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+</beans>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
