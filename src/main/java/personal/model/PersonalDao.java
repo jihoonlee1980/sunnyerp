@@ -8,10 +8,10 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 import community.model.ComuDTO;
 
 public class PersonalDao extends SqlSessionDaoSupport{
-	/*public int getTotalcount()
+	public int getTotalcount()
 	{
-		return getSqlSession().selectOne("countOfMyboard");
-	}*/
+		return getSqlSession().selectOne("countOfPersonal");
+	}
 	
 	public void insertMyboard(PersonalDto dto)
 	{

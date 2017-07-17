@@ -25,7 +25,7 @@ public class personalupdateController {
 	private PersonalDao mydao;
 	
 	
-	@RequestMapping("erp/personal/personalboardupdatepassform.do")
+	@RequestMapping("/personal/personalboardupdatepassform.do")
 	public ModelAndView updateform(
 			@RequestParam int num,
 			@RequestParam String pageNum
@@ -34,7 +34,7 @@ public class personalupdateController {
 		ModelAndView model=new ModelAndView();
 		model.addObject("num",num);
 		model.addObject("pageNum",pageNum);
-		model.setViewName("/1/erp/personal/personalboardupdatepass");
+		model.setViewName("/1/personal/personalboardupdatepass");
 		return model;
 	}
 	
@@ -42,7 +42,7 @@ public class personalupdateController {
 	
 	
 	
-	@RequestMapping(value="erp/personal/personalboardupdatepass.do", method=RequestMethod.POST)
+	@RequestMapping(value="/personal/personalboardupdatepass.do", method=RequestMethod.POST)
 	public String update(
 			
 			@ModelAttribute PersonalDto dto,

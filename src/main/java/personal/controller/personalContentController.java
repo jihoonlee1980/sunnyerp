@@ -33,15 +33,15 @@ public class personalContentController {
 		
 		
 		//key 가 lst 면 조회수 증가
-				/*if(key.equals("lst"))*///목록에서 내용보기 할 경우에만 증가
-				/*	myDao.updateReadcount(num);*/
+				if(key.equals("lst"))//목록에서 내용보기 할 경우에만 증가
+					myDao.updateReadcount(num);
 		 
 		ModelAndView model=new ModelAndView();
 		PersonalDto dto=myDao.getData(num);
 		
 		
 		
-		String num1=dto.getNum();
+		int num1=dto.getNum();
 		//System.out.println(seq);
 		
 		

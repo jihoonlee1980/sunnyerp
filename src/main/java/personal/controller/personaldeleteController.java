@@ -18,7 +18,7 @@ public class personaldeleteController {
 	private PersonalDao mydao;
 	
 	
-	@RequestMapping("erp/personal/personalboarddeletepassform.do")
+	@RequestMapping("/personal/personalboarddeletepassform.do")
 	public ModelAndView delform(
 			@RequestParam int num,
 			@RequestParam String pageNum
@@ -27,11 +27,11 @@ public class personaldeleteController {
 		ModelAndView model=new ModelAndView();
 		model.addObject("num",num);
 		model.addObject("pageNum",pageNum);
-		model.setViewName("/1/erp/personal/personalboarddeletepass");
+		model.setViewName("/1/personal/personalboarddeletepass");
 		return model;
 	}
 	
-	@RequestMapping("erp/personal/personalboarddeletepass.do")
+	@RequestMapping("/personal/personalboarddeletepass.do")
 	public String delete(
 			@RequestParam int num,
 			@RequestParam String pageNum

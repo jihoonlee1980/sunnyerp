@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.springframework.web.multipart.MultipartFile;
 
 public class PersonalDto {
-	private String num;
+	private int num;
 	private String id;
 	private String name;
 	private String gender;
@@ -23,10 +23,10 @@ public class PersonalDto {
 	
 	
 	
-	public String getNum() {
+	public int getNum() {
 		return num;
 	}
-	public void setNum(String num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 	public String getId() {

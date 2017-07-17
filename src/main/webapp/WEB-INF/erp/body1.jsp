@@ -8,6 +8,7 @@
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 
 
+<%@page import="personal.model.PersonalDto"%>
 
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
@@ -173,22 +174,66 @@ $(function(){
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="#" class="site_title"><i class="fa fa-pie-chart"></i> <span>SunnyErp</span></a>
+              <a href="${root}/loginform.do" class="site_title"><i class="fa fa-pie-chart"></i> <span>SunnyErp</span></a>
             </div>
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
+            
+            
+            
             <div class="profile clearfix">
+            
+            
+            
+            
+            
               <div class="profile_pic">
+              
                 <img src="${root}/save/favicon.png" alt="..." class="img-circle profile_img">
+             
+                
+               <%--  <c:forEach var="a" items="${list}">
+                    
+                    <img src="${root}/save/${a.filename}" alt="..." class="img-circle profile_img">
+               
+                    
+                    </c:forEach>
+                
+                
+                 <form action="upload.do" enctype="multipart/form-data" method="post">
+            
+            <table id="file_table" class="table table-bordered">
+              
+                 <input name="upfile" type="file" id="f_id" class="img-circle profile_img" required="required" alt="...">
+                
+                
+                
+                <input type="submit" value="업로드" class="btn btn-info"> 
+              <input type="hidden" name="m_id" value="${sessionScope.m_id_}">	
+              
+              
+               </table>
+            
+            </form> --%>
+                
+                
               </div>
+              
+              
+              
+              
+              
               <div class="profile_info">
                 <span>${sessionScope.m_level}</span>
               
                 <h2>${sessionScope.m_id_}&nbsp;&nbsp;<!-- <a style="color:lime"> -->[${sessionScope.m_nick}]</h2>
               </div>
             </div>
+            
+           
+            
             <!-- /menu profile quick info -->
 
             <br />
@@ -202,7 +247,7 @@ $(function(){
                 	 <li><a><i class="fa fa-user"></i> 회원정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
-                      <li><a href="${root}/myboard/list.do">관리자페이지</a></li>
+                      <li><a href="${root}/personal/list.do">관리자페이지</a></li>
                       <li><a href="${root}/personal/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
@@ -210,15 +255,15 @@ $(function(){
                   
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/index.html">회사정보</a></li>
-                      <li><a href="${root}/save/index2.html">사원정보</a></li>
-                      <li><a href="${root}/save/index3.html">협력사정보</a></li>
+                      <li><a href="${root}/company/list.do">회사정보</a></li>
+                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 구매발주 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/form.html">구매발주입력</a></li>
-                      <li><a href="${root}/save/form_advanced.html">구매발주현황</a></li>
+                      <li><a href="${root}/buy/buywriteform.do">구매발주입력</a></li>
+                      <li><a href="${root}/buy/list.do">구매발주현황</a></li>
                      <%--  <li><a href="${root}/save/form_validation.html">Form Validation</a></li>
                       <li><a href="${root}/save/form_wizards.html">Form Wizard</a></li>
                       <li><a href="${root}/save/form_upload.html">Form Upload</a></li>
@@ -227,8 +272,8 @@ $(function(){
                   </li>
                   <li><a><i class="fa fa-gears"></i> 생산제조 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/general_elements.html">생산제조입력</a></li>
-                      <li><a href="${root}/save/media_gallery.html">생산제조현황</a></li>
+                      <li><a href="${root}/product/productwriteform.do">생산제조입력</a></li>
+                      <li><a href="${root}/product/list.do">생산제조현황</a></li>
                       <%-- <li><a href="${root}/save/typography.html">Typography</a></li>
                       <li><a href="${root}/save/icons.html">Icons</a></li>
                       <li><a href="${root}/save/glyphicons.html">Glyphicons</a></li>
@@ -240,15 +285,15 @@ $(function(){
                   </li>
                   <li><a><i class="fa fa-table"></i> 자재명세서(BOM) <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/tables.html">BOM입력</a></li>
-                      <li><a href="${root}/save/tables.html">BOM현황</a></li>
+                      <li><a href="${root}/bom/bomwriteform.do">BOM입력</a></li>
+                      <li><a href="${root}/bom/list.do">BOM현황</a></li>
                      <%--  <li><a href="${root}/save/tables_dynamic.html">Table Dynamic</a></li> --%>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 단가관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/chartjs.html">단가입력</a></li>
-                      <li><a href="${root}/save/chartjs2.html">단가현황</a></li>
+                      <li><a href="${root}/cost/costwriteform.do">단가입력</a></li>
+                      <li><a href="${root}/cost/list.do">단가현황</a></li>
                       <%-- <li><a href="${root}/save/morisjs.html">Moris JS</a></li>
                       <li><a href="${root}/save/echarts.html">ECharts</a></li>
                       <li><a href="${root}/save/other_charts.html">Other Charts</a></li> --%>
@@ -256,16 +301,16 @@ $(function(){
                   </li>
                   <li><a><i class="fa fa-truck"></i>엽업출고출하 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">출고출하입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">출고출하현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">거래명세표</a></li>
+                      <li><a href="${root}/delivery/deliverywriteform.do">출고출하입력</a></li>
+                      <li><a href="${root}/delivery/list.do">출고출하현황</a></li>
+                      <li><a href="${root}/delivery/transactionlist.do">거래명세표</a></li>
                     </ul>
                   </li>
                     <li><a><i class="fa fa-home"></i>재고창고 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">재고입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고창고현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고조사실사</a></li>
+                      <li><a href="${root}/stock/stockwriteform.do">재고입력</a></li>
+                      <li><a href="${root}/stock/list.do">재고창고현황</a></li>
+                      <li><a href="${root}/stock/investigationwriteform.do">재고조사실사</a></li>
                     </ul>
                   </li>
                   
@@ -304,6 +349,8 @@ $(function(){
           </div>
         </div>
 
+ 
+		
         <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
@@ -315,7 +362,23 @@ $(function(){
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="${root}/save/${a.filename}" width="100" height="100" alt="">${sessionScope.m_nick}
+                    
+                    
+                    <c:forEach var="a" items="${list}">
+                    
+                    <img src="${root}/save/${a.filename}">
+               
+                    
+                    </c:forEach>
+                    
+                   <%--  <img src="${root}/save/${dto.filename}">
+                    
+                   ${dto.filename}
+                   --%>
+                    
+                    ${sessionScope.m_nick}
+                    
+                    
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -329,7 +392,7 @@ $(function(){
                     <li><a href="javascript:;">Help</a></li> -->
                   <!--   <div class="count green"> -->
                     <li><a data-toggle="tooltip" data-placement="top" title="Logout" onclick="location.href='logout.do'" 
-              href="${root}/loginform.do"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+              href="${root}/logout.do"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
@@ -402,6 +465,8 @@ $(function(){
           </div>
         </div>
         <!-- /top navigation -->
+
+
 
         <!-- page content -->
         <div class="right_col" role="main">
