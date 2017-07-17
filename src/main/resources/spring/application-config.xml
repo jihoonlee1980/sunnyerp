@@ -69,6 +69,11 @@
 	</bean>
 	
 	
+	<bean id="CompanyDao" class="company.model.CompanyDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
+	
 	<bean id="joinDAO" class="join.model.JoinDAO">
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
 	</bean>

@@ -339,15 +339,15 @@
                   
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/index.html">회사정보</a></li>
-                      <li><a href="${root}/save/index2.html">사원정보</a></li>
-                      <li><a href="${root}/save/index3.html">협력사정보</a></li>
+                      <li><a href="${root}/company/list.do">회사정보</a></li>
+                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 구매발주 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/form.html">구매발주입력</a></li>
-                      <li><a href="${root}/save/form_advanced.html">구매발주현황</a></li>
+                      <li><a href="${root}/buy/buywriteform.do">구매발주입력</a></li>
+                      <li><a href="${root}/buy/list.do">구매발주현황</a></li>
                      <%--  <li><a href="${root}/save/form_validation.html">Form Validation</a></li>
                       <li><a href="${root}/save/form_wizards.html">Form Wizard</a></li>
                       <li><a href="${root}/save/form_upload.html">Form Upload</a></li>
@@ -356,8 +356,8 @@
                   </li>
                   <li><a><i class="fa fa-gears"></i> 생산제조 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/general_elements.html">생산제조입력</a></li>
-                      <li><a href="${root}/save/media_gallery.html">생산제조현황</a></li>
+                      <li><a href="${root}/product/productwriteform.do">생산제조입력</a></li>
+                      <li><a href="${root}/product/list.do">생산제조현황</a></li>
                       <%-- <li><a href="${root}/save/typography.html">Typography</a></li>
                       <li><a href="${root}/save/icons.html">Icons</a></li>
                       <li><a href="${root}/save/glyphicons.html">Glyphicons</a></li>
@@ -369,15 +369,15 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> 자재명세서(BOM) <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/tables.html">BOM입력</a></li>
-                      <li><a href="${root}/save/tables.html">BOM현황</a></li>
+                      <li><a href="${root}/bom/bomwriteform.do">BOM입력</a></li>
+                      <li><a href="${root}/bom/list.do">BOM현황</a></li>
                      <%--  <li><a href="${root}/save/tables_dynamic.html">Table Dynamic</a></li> --%>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 단가관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/chartjs.html">단가입력</a></li>
-                      <li><a href="${root}/save/chartjs2.html">단가현황</a></li>
+                      <li><a href="${root}/cost/costwriteform.do">단가입력</a></li>
+                      <li><a href="${root}/cost/list.do">단가현황</a></li>
                       <%-- <li><a href="${root}/save/morisjs.html">Moris JS</a></li>
                       <li><a href="${root}/save/echarts.html">ECharts</a></li>
                       <li><a href="${root}/save/other_charts.html">Other Charts</a></li> --%>
@@ -385,16 +385,16 @@
                   </li>
                   <li><a><i class="fa fa-truck"></i>엽업출고출하 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">출고출하입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">출고출하현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">거래명세표</a></li>
+                      <li><a href="${root}/delivery/deliverywriteform.do">출고출하입력</a></li>
+                      <li><a href="${root}/delivery/list.do">출고출하현황</a></li>
+                      <li><a href="${root}/delivery/transactionlist.do">거래명세표</a></li>
                     </ul>
                   </li>
                     <li><a><i class="fa fa-home"></i>재고창고 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">재고입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고창고현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고조사실사</a></li>
+                      <li><a href="${root}/stock/stockwriteform.do">재고입력</a></li>
+                      <li><a href="${root}/stock/list.do">재고창고현황</a></li>
+                      <li><a href="${root}/stock/investigationwriteform.do">재고조사실사</a></li>
                     </ul>
                   </li>
                   

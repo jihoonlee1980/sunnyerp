@@ -1,8 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
+
 
 
 <%@page import="java.sql.SQLException"%>
@@ -21,9 +25,13 @@
 <%@page import="javax.swing.text.Document"%>
 
 
-<html>
-	<head>
-	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+  <head>
+  
+  
+  
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,211 +88,11 @@
 
 
 
-
-
-
-
-		<script type="text/javascript">
-		var idx=0;
-		function addFileForm(){
-		    
-		    var tb1 = document.getElementById("file_table");
-		    if(9 >= tb1.rows.length) {
-		     var idx = getObj().parentElement.rowIndex + 1;
-		     //alert(idx);
-		     $("#cnt").val(idx);
-		     var trow= tb1.insertRow(idx);
-		     var uploadOBJ="<tr><td bgcolor='#fff0f5'>이미지</td><td>"+
-		    	 "<input name='upfile' type='file' id='f_id'> <input type=\"button\" class=\"btn btn-success btn-sm\" value=\"추가\" OnClick=\"javascript:addFileForm();\" /> <input type=\"button\" class=\"btn btn-info btn-sm\" value=\"삭제\" OnClick=\"javascript:deleteRow();\" />"+
-		    	 "</td></tr>";
-		     trow.innerHTML = uploadOBJ;
-		    } else {
-		     alert("문서파일은 10개 이상 접수할 수  없습니다.");
-		     return;
-		    }
-		   }
-		   
-		   function getObj()
-		   {
-		       var obj = event.srcElement
-		       while (obj.tagName !='TD') //TD가 나올때까지의 Object추출
-		       {
-		           obj = obj.parentElement
-		       }
-		       return obj
-		   }
-		   
-		   function deleteRow(){
-		    var tb1 = document.getElementById("file_table");
-		   
-		    var idx = getObj().parentElement.rowIndex;
-		   
-		    if(tb1.rows.length-1 !=0){
-		     var tRow = tb1.deleteRow(idx);
-		    }else{
-		      document.getElementById('f_id').select();
-		         document.selection.clear();
-		    }
-		   }
-		
-		   
-		   
-		   
-		 //category1 변경시 이메일주소를 category로 보냄
-		 //직접입력인 경우에는 category 의 기존값을 지우고 포커스 보내기
-
-		 $(function(){
-
-		 $("#category1").change(function(){
-		 	if($(this).val()==" "){
-		 		$("#category").val("");
-		 		$("#category").focus();
-		 	}else{
-		 		$("#category").val($(this).val());
-		 	}
-		 });
-
-		 });
-		   
-		 
-		 
-		//gender1 변경시 이메일주소를 gender로 보냄
-		 //직접입력인 경우에는 gender 의 기존값을 지우고 포커스 보내기
-
-		 $(function(){
-
-		 $("#gender1").change(function(){
-		 	if($(this).val()==" "){
-		 		$("#gender").val("");
-		 		$("#gender").focus();
-		 	}else{
-		 		$("#gender").val($(this).val());
-		 	}
-		 });
-
-		 });
-		
-		
-		
-		//grade1 변경시 이메일주소를 grade로 보냄
-		 //직접입력인 경우에는 grade 의 기존값을 지우고 포커스 보내기
-
-		 $(function(){
-
-		 $("#grade1").change(function(){
-		 	if($(this).val()==" "){
-		 		$("#grade").val("");
-		 		$("#grade").focus();
-		 	}else{
-		 		$("#grade").val($(this).val());
-		 	}
-		 });
-
-		 });
-		
-		
-		
-		
-		//department1 변경시 이메일주소를 department로 보냄
-		 //직접입력인 경우에는 department 의 기존값을 지우고 포커스 보내기
-
-		 $(function(){
-
-		 $("#department1").change(function(){
-		 	if($(this).val()==" "){
-		 		$("#department").val("");
-		 		$("#department").focus();
-		 	}else{
-		 		$("#department").val($(this).val());
-		 	}
-		 });
-
-		 });
-		
-		   
-		   
-		</script>
-		
-		
-		
-		<script type="text/javascript">
-	function check(f){
-		// 아이디 길이 체크
-		var id = f.id.value;
-		if(id.length<5 || id.length>12){
-			alert("아이디는 5~12글자로 만들어 주세요")
-			return false;
-		}
-		// 아이디에 공백 포함 여부 확인
-		if(id.indexOf(' ')>=0){
-			alert("아이디에 공백이 포함되어 있습니다\n다시 입력해 주세요");
-			return false;
-		}
-		// 알파벳과 숫자만 허용
-		for(var i = 0; i<id.length; i++){
-			var ch = id.charAt(i);
-			if(!(ch>='a'&&ch<='z' || ch>='A'&&ch<='Z' || ch>='0'&&ch<='9')){
-				alert("알파벳과 숫자로만 입력해 주세요");
-				return false;
-			}
-		}
-	}
-</script>
-		
-		<script type="text/javascript">
-		
-		
-		function check(f)
-		{
-	
-			if(f.id.value==''){
-				alert("아이디를 입력해 주세요");
-				return false;
-			}
-			if(f.name.value==''){
-				alert("이름을 입력해 주세요");
-				return false;
-			}
-			if(f.gender.value==''){
-				alert("성별을 선택해 주세요");
-				return false;
-			}
-			if(f.address.value==''){
-				alert("주소를 입력해 주세요");
-				return false;
-			}
-			if(f.hp.value==''){
-				alert("핸드폰을 입력해 주세요");
-				return false;
-			}
-			if(f.email.value==''){
-				alert("이메일을 입력해 주세요");
-				return false;
-			}
-			if(f.grade.value==''){
-				alert("직급을 선택해 주세요");
-				return false;
-			}
-			 
-			if(f.department.value==''){
-				alert("부서를 선택해 주세요");
-				return false;
-			} 
-			
-			if(f.f_id.value==''){
-				alert("파일을 선택해 주세요");
-				return false;
-			} 
-			 
-			
-			
-		}
-		
-		
-		
-	</script>
-	</head> 
+</head>
 	<body>
+	
+	
+	
 	
 	
 	 <body class="nav-md">
@@ -313,7 +121,7 @@
 
             <br />
 
-            <!-- sidebar menu -->
+           <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                <%--  <i class="fa fa-home"></i><a href="${root}/joinForm.do"><h3>회원가입</h3></a> --%>
@@ -330,15 +138,15 @@
                   
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/index.html">회사정보</a></li>
-                      <li><a href="${root}/save/index2.html">사원정보</a></li>
-                      <li><a href="${root}/save/index3.html">협력사정보</a></li>
+                      <li><a href="${root}/company/list.do">회사정보</a></li>
+                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 구매발주 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/form.html">구매발주입력</a></li>
-                      <li><a href="${root}/save/form_advanced.html">구매발주현황</a></li>
+                      <li><a href="${root}/buy/buywriteform.do">구매발주입력</a></li>
+                      <li><a href="${root}/buy/list.do">구매발주현황</a></li>
                      <%--  <li><a href="${root}/save/form_validation.html">Form Validation</a></li>
                       <li><a href="${root}/save/form_wizards.html">Form Wizard</a></li>
                       <li><a href="${root}/save/form_upload.html">Form Upload</a></li>
@@ -347,8 +155,8 @@
                   </li>
                   <li><a><i class="fa fa-gears"></i> 생산제조 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/general_elements.html">생산제조입력</a></li>
-                      <li><a href="${root}/save/media_gallery.html">생산제조현황</a></li>
+                      <li><a href="${root}/product/productwriteform.do">생산제조입력</a></li>
+                      <li><a href="${root}/product/list.do">생산제조현황</a></li>
                       <%-- <li><a href="${root}/save/typography.html">Typography</a></li>
                       <li><a href="${root}/save/icons.html">Icons</a></li>
                       <li><a href="${root}/save/glyphicons.html">Glyphicons</a></li>
@@ -360,15 +168,15 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> 자재명세서(BOM) <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/tables.html">BOM입력</a></li>
-                      <li><a href="${root}/save/tables.html">BOM현황</a></li>
+                      <li><a href="${root}/bom/bomwriteform.do">BOM입력</a></li>
+                      <li><a href="${root}/bom/list.do">BOM현황</a></li>
                      <%--  <li><a href="${root}/save/tables_dynamic.html">Table Dynamic</a></li> --%>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 단가관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/chartjs.html">단가입력</a></li>
-                      <li><a href="${root}/save/chartjs2.html">단가현황</a></li>
+                      <li><a href="${root}/cost/costwriteform.do">단가입력</a></li>
+                      <li><a href="${root}/cost/list.do">단가현황</a></li>
                       <%-- <li><a href="${root}/save/morisjs.html">Moris JS</a></li>
                       <li><a href="${root}/save/echarts.html">ECharts</a></li>
                       <li><a href="${root}/save/other_charts.html">Other Charts</a></li> --%>
@@ -376,16 +184,16 @@
                   </li>
                   <li><a><i class="fa fa-truck"></i>엽업출고출하 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">출고출하입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">출고출하현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">거래명세표</a></li>
+                      <li><a href="${root}/delivery/deliverywriteform.do">출고출하입력</a></li>
+                      <li><a href="${root}/delivery/list.do">출고출하현황</a></li>
+                      <li><a href="${root}/delivery/transactionlist.do">거래명세표</a></li>
                     </ul>
                   </li>
                     <li><a><i class="fa fa-home"></i>재고창고 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">재고입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고창고현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고조사실사</a></li>
+                      <li><a href="${root}/stock/stockwriteform.do">재고입력</a></li>
+                      <li><a href="${root}/stock/list.do">재고창고현황</a></li>
+                      <li><a href="${root}/stock/investigationwriteform.do">재고조사실사</a></li>
                     </ul>
                   </li>
                   
@@ -533,39 +341,248 @@
 	  
 	
 	<br><br><br><br><br>
-	
-	
-	<form action="personalboarddeletepass.do" method="post">
-		<table class="table table-bordered">
-			<tr>
-				<td style="text-align: center;">
-					<b style="color: gray;">정말 삭제하시겠습니까?</b><br><br>
+	  
+	  
+	  
+	  <c:if test="${sessionScope.m_id_==null}">
+	  
+	  <center>
+		
+			
+				<b style="color:lime;">로그인(Login)을 해주세요.</b>
 				
-					<!-- hidden -->
-					<input type="hidden" name="num" value="${num}" style="color: gray;">
-					<input type="hidden" name="pageNum" value="${pageNum}" style="color: gray;">
+			
+			<br><br>
+			
+					<input type="submit" class="btn" style="color: black" value="LOGIN" onclick="location.href='${root}/loginform.do'">
+						<input type="button" class="btn" style="color: black" value="JOIN" onclick="location.href='${root}/joinForm.do'">
 					
-					<input type="submit" value="삭제" class="btn btn-danger">
-					<input type="button" value="취소" class="btn btn-warning" onclick="history.back()">   
-				</td>
-			</tr>
-		</table>
-		</form>
-		
-		
-		<%-- <br>
-		
-		
-		<center>
-		
-		 <img class="img-responsive" src="${root}/save/ico/favicon4.png" alt="logo">
+			<br><br>
+			
+			 <%-- <img class="img-responsive" src="${root}/save/ico/favicon6.png" alt="logo">
+			
+			
+			<br><br> --%>
 		
 		</center>
+
+
+</c:if>
+
+
+
+
+<center>
+	
+	
+
+	
+	<c:if test="${totalCount>0}">
+		<a style="color: gray;">총</a> <b style="color: red;">${totalCount}</b><a style="color: gray;"> 개의 데이타가 있습니다.</a>
 		
+<br><br>	
 		
-		<br> --%>
-		
-		  <center>
+	  </c:if>	
+	  
+	  </center>
+	  
+<br>
+
+	  
+	   <center>
+	  
+	
+	  
+	  
+	  <div style="width: 60%;text-align: center;">
+	  	<input type="button" class="btn btn-info btn-sm" value="회사정보 등록(수정)"
+	  	  onclick="location.href='companywriteform.do'">
+	  </div>
+	  
+	  
+	  
+	
+	
+	  
+	  </center>
+	  
+	
+	<br><br>
+	  
+	  
+	  <center>
+	  
+	  
+	  <div style="text-align: center;">
+	  	<ul class="pagination">
+	  		<!-- 이전 -->
+	  		<c:if test="${startPage>1}">
+		  		<li>
+		  			<a href="list.do?pageNum=${startPage-1}">◀</a>
+		  		</li>
+	  		</c:if>	
+	  		<c:forEach var="pg" begin="${startPage}" end="${endPage}">
+	  			<c:if test="${currentPage==pg}">
+	  				<li>
+	  					<a href="list.do?pageNum=${pg}" style="color: red;font-weight: bold;">${pg}</a>
+	  				</li>
+	  			</c:if>
+	  			<c:if test="${currentPage!=pg}">
+		  			<li>
+		  				<a href="list.do?pageNum=${pg}" style="color: black;">${pg}</a>
+		  			</li>
+	  			</c:if>
+	  			
+	  		</c:forEach>
+	  		<!-- 다음 -->	
+	  		<c:if test="${endPage<totalPage}">  
+		  		<li>
+		  			<a href="list.do?pageNum=${endPage+1}">▶</a>
+		  		</li>	
+	  		</c:if>	
+	  	</ul>
+	  </div>
+	  
+	  
+	  </center>
+	  
+	  
+	  
+	<c:if test="${sessionScope.m_id_==sessionScope.m_id_}">
+	  
+
+	  
+	  <center>
+	  
+	  <table class="table table-bordered table-hover">
+	  	<!-- <tr style="text-align: center;">
+	  		<td><b style="color: black;">번호</b></td>
+	  		<td><b style="color: black;">분류</b></td>
+	  		<td><b style="color: black;">제 목</b></td>
+	  		<td><b style="color: black;">작성자</b></td>	  		
+	  		<td><b style="color: black;">작성일</b></td>
+	  	</tr> -->
+	  	<c:if test="${totalCount==0}">
+	  		<td style="text-align: center;">
+	  			<b style="color: gray;">등록된 게시물이 없습니다.</b>
+	  		</td>	  		
+	  	</c:if>
+	  	
+	  	
+	  	<c:if test="${totalCount>0}">
+	  	   <c:forEach var="a" items="${list}">
+	  	   
+	  	   
+	  	   <br><br>
+	  	
+	  	   	 <tr>
+	  	   	 	<b style="color: brown;">No. ${no}</b><br>
+	  	   	 	<c:set value="${no-1}" var="no"/>
+	  	   	 	<%-- <b style="color: orange;">${a.category}</b><br> --%>
+	  	   	 	<br>
+	  	   	 	
+	  	   	 	
+	  	   	 	<a href="content.do?num=${a.num}&pageNum=${currentPage}">
+	  	   	 	
+	  	   	 	아이디 : <b style="color:gray">${a.id}</b><br>
+	  	   	 	
+	  	   	 	<!-- <span style="color: gray;text-overflow:ellipsis;overflow: hidden;
+				 white-space: nowrap;display: block;max-width: 200px;"> -->
+	  	   	 	
+	  	   	 		
+	  	   	 		
+	  	   	 		
+	  	   	 		
+	  	   	 		
+	  	   	 	<!-- 	</span> -->
+	  	   	 		
+	  	   	 		<center>
+                                	
+     						<br><br>	
+     							<%-- 	<video width=300" height="200" controls="controls">
+       <source src="${root}/save/${a.filename}" type="video/mp4">
+     
+     </video> --%>
+     				 <img src="${root}/save/${a.filename}" width="100" height="100">
+     				
+	  	   	 		
+	  	   	 		
+	  	   	 		</a>
+	  	   	 		
+	  	   	 <br><br><br>
+	  	   	 
+	  	   	 
+	  	   	 	등록(수정)일자 :
+	  	   	 		<b style="color:gray"><fmt:formatDate value="${a.gaipday}" pattern="yyyy-MM-dd HH:mm:ss"/></b>
+	  	   	 
+	  	   	 	<br><br><br>
+	  	   	 
+	  	   	 	이름 :<b style="color:gray"> ${a.name}</b><br>
+	  	   	 	
+	  	   	 	
+	  	   	 		 <br><br>
+	  	   	 		 
+	  	   	 		 
+	  	   	 	
+	  	   	 		 
+	  	   	 		 
+	  	   	 	주소 : <b style="color:gray">${a.address}</b><br>
+	  	   	 	
+	  	   	 	
+	  	   	 		 <br><br>	 
+	  	   	 		 
+	  	   	 		 
+	  	   	 	핸드폰 : <b style="color:gray">${a.hp}</b><br>
+	  	   	 	
+	  	   	 	
+	  	   	 		 <br><br>	 
+	  	   	 		 	 	 
+	  	   	 
+	  	   	 	
+	  	   	 	
+	  	   	 	사업자등록번호 : <b style="color:gray">${a.companyno}</b><br>
+	  	   	 	
+	  	   	 	
+	  	   	 		 <br><br>	 
+	  	   	 		 
+	  	   	 	<!-- <hr class="small">
+	  	   	 	
+	  	   	 	
+	  	   	 		<br><br> -->
+	  	   	 		
+	  	   	 <%-- 	<b style="color: black;">조회&nbsp;<b style="color: red;">[${a.readcount}]</b></b><br>	
+	  	   	 		
+	  	   	 	<br> --%>
+	  	   	 	
+	  	   	
+	  	   </c:forEach>
+	  	   <br>
+	  	   
+	  	</c:if>
+	  </table>
+	
+	  
+	  </center>
+	  
+	  </c:if>
+	  
+	  
+	 	<%--  <center> 
+	  
+	  <br>
+	  
+	  <div style="width: 60%;text-align: center;">
+	  	<input type="button" class="btn btn-warning btn-sm" value="프로필수정"
+	  	  onclick="location.href='personalwriteform.do'">
+	  </div>
+
+	  
+	  </center> --%>
+	  
+	  
+
+	  
+	  <center>
 
 <a id="to-top" href="#top" class="btn btn-dark btn-lg">
 				<i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
@@ -573,9 +590,13 @@
 
 </center>
 
-<br><br>
 
-	  <!-- jQuery -->
+
+<br><br><br><br>
+
+	  
+	  
+      <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -636,7 +657,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="${root}/save/build/js/custom.min.js"></script>
-		
-		
-</body>
+	  
+	  	
+	</body>
 </html>

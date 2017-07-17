@@ -260,21 +260,24 @@
 				alert("핸드폰을 입력해 주세요");
 				return false;
 			}
-			if(f.email.value==''){
+			/* if(f.email.value==''){
 				alert("이메일을 입력해 주세요");
 				return false;
 			}
 			if(f.grade.value==''){
 				alert("직급을 선택해 주세요");
 				return false;
-			}
+			} */
 			 
-			if(f.department.value==''){
+			if(f.companyno.value==''){
 				alert("부서를 선택해 주세요");
 				return false;
 			} 
 			
-			
+			if(f.f_id.value==''){
+				alert("파일을 선택해 주세요");
+				return false;
+			} 
 			 
 			
 			
@@ -296,7 +299,8 @@
 	<body>
 	
 	
-	  <body class="nav-md">
+	
+	 <body class="nav-md">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -322,7 +326,7 @@
 
             <br />
 
-            <!-- sidebar menu -->
+             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                <%--  <i class="fa fa-home"></i><a href="${root}/joinForm.do"><h3>회원가입</h3></a> --%>
@@ -339,15 +343,15 @@
                   
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/index.html">회사정보</a></li>
-                      <li><a href="${root}/save/index2.html">사원정보</a></li>
-                      <li><a href="${root}/save/index3.html">협력사정보</a></li>
+                      <li><a href="${root}/company/list.do">회사정보</a></li>
+                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 구매발주 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/form.html">구매발주입력</a></li>
-                      <li><a href="${root}/save/form_advanced.html">구매발주현황</a></li>
+                      <li><a href="${root}/buy/buywriteform.do">구매발주입력</a></li>
+                      <li><a href="${root}/buy/list.do">구매발주현황</a></li>
                      <%--  <li><a href="${root}/save/form_validation.html">Form Validation</a></li>
                       <li><a href="${root}/save/form_wizards.html">Form Wizard</a></li>
                       <li><a href="${root}/save/form_upload.html">Form Upload</a></li>
@@ -356,8 +360,8 @@
                   </li>
                   <li><a><i class="fa fa-gears"></i> 생산제조 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/general_elements.html">생산제조입력</a></li>
-                      <li><a href="${root}/save/media_gallery.html">생산제조현황</a></li>
+                      <li><a href="${root}/product/productwriteform.do">생산제조입력</a></li>
+                      <li><a href="${root}/product/list.do">생산제조현황</a></li>
                       <%-- <li><a href="${root}/save/typography.html">Typography</a></li>
                       <li><a href="${root}/save/icons.html">Icons</a></li>
                       <li><a href="${root}/save/glyphicons.html">Glyphicons</a></li>
@@ -369,15 +373,15 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> 자재명세서(BOM) <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/tables.html">BOM입력</a></li>
-                      <li><a href="${root}/save/tables.html">BOM현황</a></li>
+                      <li><a href="${root}/bom/bomwriteform.do">BOM입력</a></li>
+                      <li><a href="${root}/bom/list.do">BOM현황</a></li>
                      <%--  <li><a href="${root}/save/tables_dynamic.html">Table Dynamic</a></li> --%>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 단가관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/chartjs.html">단가입력</a></li>
-                      <li><a href="${root}/save/chartjs2.html">단가현황</a></li>
+                      <li><a href="${root}/cost/costwriteform.do">단가입력</a></li>
+                      <li><a href="${root}/cost/list.do">단가현황</a></li>
                       <%-- <li><a href="${root}/save/morisjs.html">Moris JS</a></li>
                       <li><a href="${root}/save/echarts.html">ECharts</a></li>
                       <li><a href="${root}/save/other_charts.html">Other Charts</a></li> --%>
@@ -385,16 +389,16 @@
                   </li>
                   <li><a><i class="fa fa-truck"></i>엽업출고출하 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">출고출하입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">출고출하현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">거래명세표</a></li>
+                      <li><a href="${root}/delivery/deliverywriteform.do">출고출하입력</a></li>
+                      <li><a href="${root}/delivery/list.do">출고출하현황</a></li>
+                      <li><a href="${root}/delivery/transactionlist.do">거래명세표</a></li>
                     </ul>
                   </li>
                     <li><a><i class="fa fa-home"></i>재고창고 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${root}/save/fixed_sidebar.html">재고입력</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고창고현황</a></li>
-                      <li><a href="${root}/save/fixed_footer.html">재고조사실사</a></li>
+                      <li><a href="${root}/stock/stockwriteform.do">재고입력</a></li>
+                      <li><a href="${root}/stock/list.do">재고창고현황</a></li>
+                      <li><a href="${root}/stock/investigationwriteform.do">재고조사실사</a></li>
                     </ul>
                   </li>
                   
@@ -445,14 +449,13 @@
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     
-                     <%-- <c:forEach var="a" items="${list}">
+                 
                     
-                    <img src="${root}/save/${a.filename}">
+                    <%-- <img src="${root}/save/${dto.filename}">
                     
-                    </c:forEach> --%>
+                   ${dto.filename} --%>
                     
-                     ${sessionScope.m_nick}
-                     
+                    ${sessionScope.m_nick}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -539,11 +542,10 @@
           </div>
         </div>
         <!-- /top navigation -->
-	  
-	
-	<br><br><br><br><br>
 
+<br>
 
+<br><br>
 
 
 <c:if test="${sessionScope.m_id_==null}">
@@ -552,7 +554,7 @@
 
 
 <center>
-		
+		<br><br>
 			
 				<b style="color:lime;">로그인(Login)을 해주세요.</b>
 				
@@ -564,10 +566,10 @@
 					
 			<br><br>
 			
-			 <img class="img-responsive" src="${root}/save/ico/favicon6.png" alt="logo">
+			 <%-- <img class="img-responsive" src="${root}/save/ico/favicon6.png" alt="logo">
 			
 			
-			<br><br>
+			<br><br> --%>
 		
 		</center>
 
@@ -581,15 +583,13 @@
 
 
 	
-		<form action="personalboardupdatepass.do" enctype="multipart/form-data" method="post">
+		<form action="upload.do" enctype="multipart/form-data" method="post">
 		
 		
 		
 		
 		
- 		<table id="personalboardupdatepass" class="table table-bordered">
- 		
- 	<!-- 	<table id="file_table" class="table table-bordered"> -->
+ 		<table id="file_table" class="table table-bordered">
  		
  		 <tr>
  		 	<td align="center"><b style="color: gray;">아이디(Id)</b></td>
@@ -625,7 +625,7 @@
  		 
  		 
  		 
- 		 <tr>
+ 		 <!-- <tr>
 					<td align="center"><b style="color: gray;">성별(Gender)</b></td>
 				<td align="center">
 		<input type="text" name="gender" id="gender" class="form-control" required="required" placeholder="직접입력 또는 성별선택">
@@ -639,34 +639,34 @@
 			</select>
 		</div>
 	</td>
-		</tr>
+		</tr> -->
  		 
  		 
  		  <tr>
  		 	<td align="center"><b style="color: gray;">주소(Address)</b></td>
  		 	<td align="center">
  		 		<input type="text" name="address" id="address" required="required" class="form-control"
- 		 		placeholder="신주소, 도로명 포함  예 ) 광주광역시 광산구 수등로 94번길 31" value="${personaldto.address}">
+ 		 		placeholder="신주소, 도로명 포함  예 ) 광주광역시 광산구 수등로 94번길 31">
  		 	</td>
  		 </tr>
  		 <tr>
  		 	<td align="center"><b style="color: gray;">핸드폰(Hp)</b></td>
  		 	<td align="center">
  		 		<input type="text" name="hp" id="hp" required="required" class="form-control"
- 		 		placeholder="-없이,  예 ) 01012345678" value="${personaldto.hp}">
+ 		 		placeholder="-없이,  예 ) 01012345678">
  		 	</td>
  		 </tr>
  		 <tr>
- 		 	<td align="center"><b style="color: gray;">이메일(Email)</b></td>
+ 		 	<td align="center"><b style="color: gray;">사업자등록번호(Companyno)</b></td>
  		 	<td align="center">
- 		 		<input type="text" name="email" id="email" required="required" class="form-control"
- 		 		placeholder="예) sunnyfactory@factorysunny.com" value="${personaldto.email}">
+ 		 		<input type="text" name="companyno" id="companyno" required="required" class="form-control"
+ 		 		placeholder="예) 123-45-67890">
  		 	</td>
  		 </tr>
  		
  		 
  		 
- 		 <tr>
+ 		 <!-- <tr>
 					<td align="center"><b style="color: gray;">직급(Grade)</b></td>
 				<td align="center">
 		<input type="text" name="grade" id="grade" class="form-control" required="required" placeholder="직접입력 또는 직급선택">
@@ -692,11 +692,11 @@
 			</select>
 		</div>
 	</td>
-		</tr>
+		</tr> -->
 		
 		
 		
-		<tr>
+		<!-- <tr>
 					<td align="center"><b style="color: gray;">부서(Department)</b></td>
 				<td align="center">
 		<input type="text" name="department" id="department" class="form-control" required="required" placeholder="직접입력 또는 부서선택">
@@ -723,7 +723,7 @@
 			</select>
 		</div>
 	</td>
-		</tr>
+		</tr> -->
  		 
  		 
  		 
@@ -754,35 +754,24 @@
  		 	</td>
  		 </tr> -->
          <tr>
-          <td align="center"><b style="color: gray;">프로필사진(image)</b></td>
+          <td align="center"><b style="color: gray;">회사사진(image)</b></td>
           
           <td align="center">
           
-           <input name="upfile" type="file" id="f_id" class="form-control" required="required" readonly="readonly">
+           <input name="upfile" type="file" id="f_id" class="form-control" required="required">
          
          	<h5><a style="color: black;">
          	<br>1. 업로드는  이미지파일 한정
          	<br>2. 파일제목은 영문으로 
          	<br>3. 특수문자포함 안됨 
          	<br>4. 100M이하 용량<br>
-         	<br>파일만 업로드 가능합니다.</a></h5>
-         	<h5>
-         	<a style="color: blue;">5. 업데이트 시, <br>파일은 기존 파일이 유지됩니다.</a><br>
-         	<br><a style="color: red;">6. 파일 변동 시, <br>글삭제 후 재작성 해주세요.</a><br></h5>
+         	<br>파일만 업로드 가능합니다.</a></h5><br>
          
-         		<%-- <input type="submit" value="업로드" class="btn btn-primary">    
-         		<input type="button" value="목록"  class="btn btn-warning btn-sm"
-					 onclick="location.href='list.do?pageNum=${pageNum}'"> --%>
-				<%-- <input type="hidden" name="m_id" value="${sessionScope.m_id_}">	 --%> 
-				
-         	   <input type="hidden" name="num" value="${num}">
-		 				<input type="hidden" name="pageNum" value="${pageNum}">
-		 				
-		 				
-         		<input type="submit" value="업데이트" class="btn btn-primary">    
+         		<input type="submit" value="업로드" class="btn btn-primary">    
          		<input type="button" value="목록"  class="btn btn-warning btn-sm"
 					 onclick="location.href='list.do?pageNum=${pageNum}'">
 				<input type="hidden" name="m_id" value="${sessionScope.m_id_}">	 
+				
          	</td>
          	
          <!--  <td>
@@ -815,18 +804,19 @@
 
 
 
-<center>
+<%-- <center>
 
 <a id="to-top" href="#top" class="btn btn-dark btn-lg">
 				<i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
 
 
-</center>
+</center> --%>
 
 <br><br>
 
 
-   <!-- jQuery -->
+  
+      <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>

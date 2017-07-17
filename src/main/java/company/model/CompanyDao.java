@@ -1,56 +1,56 @@
-package personal.model;
+package company.model;
 
 import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
-import personal.model.PersonalDto;
+import company.model.CompanyDto;
 
-public class PersonalDao extends SqlSessionDaoSupport{
+public class CompanyDao extends SqlSessionDaoSupport{
 	public int getTotalcount()
 	{
-		return getSqlSession().selectOne("countOfPersonal");
+		return getSqlSession().selectOne("countOfCompany");
 	}
 	
-	public void insertMyboard(PersonalDto dto)
+	public void insertMyboard(CompanyDto dto)
 	{
-		getSqlSession().insert("insertOfPersonal", dto);
+		getSqlSession().insert("insertOfCompany", dto);
 	}
 	
-	public List<PersonalDto> getList(int start,int perpage)
+	public List<CompanyDto> getList(int start,int perpage)
 	{
 		HashMap<String, Integer> map=new HashMap<String, Integer>();
 		map.put("start", start);
 		map.put("perpage", perpage);
 		
-		return getSqlSession().selectList("pageingListOfPersonal", map);		
+		return getSqlSession().selectList("pageingListOfCompany", map);		
 	}
 	
-	public PersonalDto getData(int num)
+	public CompanyDto getData(int num)
 	{
-		return getSqlSession().selectOne("dataOfPersonal", num);
+		return getSqlSession().selectOne("dataOfCompany", num);
 	}
 	
 	
 	
 	public void updateReadcount(int num) {
 		// TODO Auto-generated method stub
-		getSqlSession().update("updateReadcountOfPersonal", num);
+		getSqlSession().update("updateReadcountOfCompany", num);
 	}
 	
 	
 	//게시글 삭제
 		public int deleteBoard(int num){
 			
-			return getSqlSession().delete("deleteOfPersonal", num);
+			return getSqlSession().delete("deleteOfCompany", num);
 		}
 		
 		
 		//게시글 수정
-			public int updateBoard(PersonalDto dto){
+			public int updateBoard(CompanyDto dto){
 				
-				return getSqlSession().update("updateOfPersonal", dto);
+				return getSqlSession().update("updateOfCompany", dto);
 			}
 			
 			
@@ -58,7 +58,7 @@ public class PersonalDao extends SqlSessionDaoSupport{
 			//작성자 닉네임 가져오기
 			public String getNick(int num){
 				
-				String m_nick=getSqlSession().selectOne("writerOfPersonal", num);
+				String m_nick=getSqlSession().selectOne("writerOfCompany", num);
 				
 				return m_nick;
 			}
