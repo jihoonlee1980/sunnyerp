@@ -448,9 +448,9 @@
 	  
 	  
 	  
-	<c:if test="${sessionScope.m_id_==sessionScope.m_id_}">
+	<c:if test="${sessionScope.m_id_=='sunny1980'}">
 	  
-
+	
 	  
 	  <center>
 	  
