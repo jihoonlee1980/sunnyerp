@@ -7,14 +7,21 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class main_jakgokDTO {
 	private int num;
-	private String writer;
-	private String subject;
-	private String category;
-	private String content;
+	private String id;
+	private String name;
+	private String gender;
+	private String address;
+	private String hp;
+	private String email;
+	private String grade;
+	private String department;
 	private String filename;
-	private int readcount;
-	private Timestamp writeday;
+	private Timestamp gaipday;
 	private ArrayList<MultipartFile> upfile;
+	private int answer;//해당 글에 달린 댓글 갯수를 저장
+	
+	
+	
 	
 	public int getNum() {
 		return num;
@@ -22,53 +29,78 @@ public class main_jakgokDTO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getWriter() {
-		return writer;
+	public String getId() {
+		return id;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getSubject() {
-		return subject;
+	public String getName() {
+		return name;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getCategory() {
-		return category;
+	public String getGender() {
+		return gender;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public String getContent() {
-		return content;
+	public String getAddress() {
+		return address;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setAddress(String address) {
+		this.address = address;
 	}
+	public String getHp() {
+		return hp;
+	}
+	public void setHp(String hp) {
+		this.hp = hp;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	
 	public String getFilename() {
 		return filename;
 	}
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
-	public int getReadcount() {
-		return readcount;
+	public Timestamp getGaipday() {
+		return gaipday;
 	}
-	public void setReadcount(int readcount) {
-		this.readcount = readcount;
-	}
-	public Timestamp getWriteday() {
-		return writeday;
-	}
-	public void setWriteday(Timestamp writeday) {
-		this.writeday = writeday;
+	public void setGaipday(Timestamp gaipday) {
+		this.gaipday = gaipday;
 	}
 	public ArrayList<MultipartFile> getUpfile() {
 		return upfile;
 	}
 	public void setUpfile(ArrayList<MultipartFile> upfile) {
 		this.upfile = upfile;
-	}	
+	}
+	public int getAnswer() {
+		return answer;
+	}
+	public void setAnswer(int answer) {
+		this.answer = answer;
+	}
 }
 //insert into compose (seq,c_title,c_content,c_file,c_date,c_hits,c_picture)values (2,"제목888","888컨텐츠","88영상.png",now(),2,"88사진.jpg");

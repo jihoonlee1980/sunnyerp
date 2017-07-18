@@ -289,8 +289,8 @@
                 	 <li><a><i class="fa fa-user"></i> 회원정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
-                      <li><a href="${root}/personal/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/personal/list.do">마이페이지</a></li>
+                      <li><a href="${root}/admin/list.do">관리자페이지</a></li>
+                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -298,7 +298,7 @@
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${root}/company/list.do">회사정보</a></li>
-                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/personal/list.do">사원정보</a></li>
                       <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>
@@ -493,7 +493,7 @@
 <br><br>
 
 
-	
+	<c:if test="${sessionScope.m_id_==dto.id}">
 	
 	<center>
 	
@@ -543,6 +543,9 @@
 		
 	
 		
+			
+					
+		
 		
 				<tr>
 				<td align="center">주소(Address)</td>
@@ -555,9 +558,7 @@
 				</tr>
 	
 			
-			
-	    
-				<tr>
+					<tr>
 				<td align="center">핸드폰(Hp)</td>
 				<td align="center">
 	
@@ -566,9 +567,8 @@
 					</td>
 					</tr>
 					
-				
-					
-					
+		
+		
 					<tr>
 					<td align="center">이메일(Email)</td>
 				<td align="center">
@@ -576,6 +576,14 @@
 					<b style="color: gray;">${dto.email}</b><br>
 					
 					</td></tr>
+			
+	    
+				
+					
+				
+					
+					
+					
 			
 				
 					
@@ -603,11 +611,11 @@
 			
 	
 					
-				<%-- <hr>
+			
 				
 				
-					<b style="color: black;">조회&nbsp;<b style="color: red;">[${dto.readcount}]</b></b>
-					 --%>
+				<%-- 	<b style="color: black;">조회&nbsp;<b style="color: red;">[${dto.readcount}]</b></b> --%>
+					
 				
 					
 		
@@ -616,15 +624,13 @@
 				
 				  
 	    
-	<%-- 		<pre style="padding-left: 10px;font-size: 10pt;white-space:pre-wrap;
- word-wrap:break-word;">	
-				${dto.content}</pre>
+		
 				
 				
 					
 			
 				
-				<br> --%>
+				<br>
 				
 				
 				
@@ -678,7 +684,7 @@
 				 </c:forTokens>					
 			
 			
-			<%-- <c:if test="${sessionScope.m_id_.equals(dto.writer)}"> --%>
+			
 	
 			<c:if test="${dto.filename!='no'}">					
 			<tr>
@@ -703,10 +709,12 @@
 			<br>
 			
 			<center>
+		
 			
-			</c:if>
 			
-				<%-- </c:if>	  --%>
+			 </c:if>
+			
+				</c:if>	 
 				
 		<%-- <tr>
 				<td colspan="2">
@@ -961,7 +969,7 @@
 				<td align="center"> -->
 					<input type="button" value="글쓰기"  class="btn btn-primary"
 					 onclick="location.href='personalwriteform.do'">
-					 <input type="button" value="목록"  class="btn btn-warning btn-sm"
+					 <input type="button" value="취소"  class="btn btn-success btn-sm"
 					 onclick="location.href='list.do?pageNum=${pageNum}'"> 
 					 
 					 
@@ -993,6 +1001,12 @@
 		
 		
 		<center>
+
+
+<input type="button" value="목록"  class="btn btn-warning btn-sm"
+					 onclick="location.href='list.do?pageNum=${pageNum}'"> 
+
+<br><br>
 
 <a id="to-top" href="#top" class="btn btn-dark btn-lg">
 				<i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
@@ -1083,3 +1097,4 @@
 
 
 
+s

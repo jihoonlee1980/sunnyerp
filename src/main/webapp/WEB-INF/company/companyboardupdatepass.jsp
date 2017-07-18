@@ -334,8 +334,8 @@
                 	 <li><a><i class="fa fa-user"></i> 회원정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
-                      <li><a href="${root}/personal/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/personal/list.do">마이페이지</a></li>
+                      <li><a href="${root}/admin/list.do">관리자페이지</a></li>
+                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -343,7 +343,7 @@
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${root}/company/list.do">회사정보</a></li>
-                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/personal/list.do">사원정보</a></li>
                       <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="personal">
+	<select id="countOfAdmin" resultType="int">
+		select count(*) from member1
+	</select>
+	<insert id="insertOfAdmin" parameterType="admindto">
+		insert into member1 (m_id, m_pass, m_level, m_nick, m_hp, m_email, m_address, gaipday) 
+		values (#{m_id}, #{m_pass}, "sunnyfactory", #{m_nick}, #{m_hp}, #{m_email}, #{m_address}, now())
+	</insert>
+	<select id="pageingListOfAdmin" parameterType="HashMap" resultType="admindto">
+		select * from member1 order by num desc limit #{start},#{perpage}
+	</select>
+	<select id="dataOfAdmin" parameterType="int" resultType="admindto">
+		select * from member1 where num=#{num}
+	</select>
+	<delete id="deleteOfAdmin" parameterType="int">
+		delete from member1 where num=#{num}
+	</delete>
+	
+	<update id="updateOfAdmin" parameterType="admindto">
+		update member1 set m_id=#{m_id},m_pass=#{m_pass},m_nick=#{m_nick},m_hp=#{m_hp},m_email=#{m_email},m_address=#{m_address} 
+		where num=#{num}
+	</update>
+	
+	<!-- <update id="updateReadcountOfMyBoard" parameterType="int">
+		update personal set readcount=readcount+1 where num=#{num}
+	</update> -->
+	
+	
+	<select id="writerOfAdmin" parameterType="int" resultType="String">
+		select m_nick from member1 where num=#{num}
+	</select>
+	
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

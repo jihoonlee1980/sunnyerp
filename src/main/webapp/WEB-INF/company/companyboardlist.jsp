@@ -127,11 +127,11 @@
                <%--  <i class="fa fa-home"></i><a href="${root}/joinForm.do"><h3>회원가입</h3></a> --%>
                 <ul class="nav side-menu">
                 
-                	 <li><a><i class="fa fa-user"></i> 회원정보<span class="fa fa-chevron-down"></span></a>
+                	  <li><a><i class="fa fa-user"></i> 회원정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
-                      <li><a href="${root}/personal/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/personal/list.do">마이페이지</a></li>
+                      <li><a href="${root}/admin/list.do">관리자페이지</a></li>
+                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -139,7 +139,7 @@
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${root}/company/list.do">회사정보</a></li>
-                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/personal/list.do">사원정보</a></li>
                       <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>
@@ -484,7 +484,7 @@
 	  	   	 	
 	  	   	 	<a href="content.do?num=${a.num}&pageNum=${currentPage}">
 	  	   	 	
-	  	   	 	아이디 : <b style="color:gray">${a.id}</b><br>
+	  	   	 	등록(수정)자 : <b style="color:gray">${a.id}</b><br>
 	  	   	 	
 	  	   	 	<!-- <span style="color: gray;text-overflow:ellipsis;overflow: hidden;
 				 white-space: nowrap;display: block;max-width: 200px;"> -->
@@ -517,7 +517,7 @@
 	  	   	 
 	  	   	 	<br><br><br>
 	  	   	 
-	  	   	 	이름 :<b style="color:gray"> ${a.name}</b><br>
+	  	   	 	회사이름 :<b style="color:gray"> ${a.name}</b><br>
 	  	   	 	
 	  	   	 	
 	  	   	 		 <br><br>
@@ -526,13 +526,13 @@
 	  	   	 	
 	  	   	 		 
 	  	   	 		 
-	  	   	 	주소 : <b style="color:gray">${a.address}</b><br>
+	  	   	 	회사주소 : <b style="color:gray">${a.address}</b><br>
 	  	   	 	
 	  	   	 	
 	  	   	 		 <br><br>	 
 	  	   	 		 
 	  	   	 		 
-	  	   	 	핸드폰 : <b style="color:gray">${a.hp}</b><br>
+	  	   	 	전화번호 : <b style="color:gray">${a.hp}</b><br>
 	  	   	 	
 	  	   	 	
 	  	   	 		 <br><br>	 
@@ -544,6 +544,13 @@
 	  	   	 	
 	  	   	 	
 	  	   	 		 <br><br>	 
+	  	   	 		 
+	  	   	 		 
+	  	   	 		 
+	  	   	 		 <div class="item">
+                            <a target="_blank" href="http://192.168.0.13:8081/">
+                                <img class="img-responsive img-full" src="${root}/save/resources/img/slide/sunny5.png" alt=""></a>
+                            </div>
 	  	   	 		 
 	  	   	 	<!-- <hr class="small">
 	  	   	 	

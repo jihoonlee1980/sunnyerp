@@ -16,6 +16,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="dataOfPersonal" parameterType="int" resultType="personaldto">
 		select * from personal where num=#{num}
 	</select>
+	<!-- <select id="dataOfPersonal1" parameterType="int" resultType="personaldto">
+		SELECT a.id, a.house_name, b.room_name1, b.room_person1, b.room_price1, b.room_occupation1, 
+b.room_name2, b.room_person2, b.room_price2, b.room_occupation2, 
+b.room_name3, b.room_person3, b.room_price3, b.room_occupation3,
+b.room_name4, b.room_person4, b.room_price4, b.room_occupation4,
+b.room_name5, b.room_person5, b.room_price5, b.room_occupation5
+ FROM sunnyerp.member1 a left outer join sunnyerp.personal b on a.id=b.id;
+	</select> -->
+	
 	<delete id="deleteOfPersonal" parameterType="int">
 		delete from personal where num=#{num}
 	</delete>

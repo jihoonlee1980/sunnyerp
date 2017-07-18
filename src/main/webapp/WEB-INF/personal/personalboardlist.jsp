@@ -7,6 +7,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 
+<%@page import="personal.model.PersonalDto"%>
+<%@page import="personal.model.PersonalDao"%>
 
 
 <%@page import="java.sql.SQLException"%>
@@ -130,8 +132,8 @@
                 	 <li><a><i class="fa fa-user"></i> 회원정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
-                      <li><a href="${root}/personal/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/personal/list.do">마이페이지</a></li>
+                      <li><a href="${root}/admin/list.do">관리자페이지</a></li>
+                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -139,7 +141,7 @@
                   <li><a><i class="fa fa-desktop"></i> 공통정보<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${root}/company/list.do">회사정보</a></li>
-                      <li><a href="${root}/employee/list.do">사원정보</a></li>
+                      <li><a href="${root}/personal/list.do">사원정보</a></li>
                       <li><a href="${root}/vendor/list.do">협력사정보</a></li>
                     </ul>
                   </li>
@@ -448,8 +450,9 @@
 	  
 	  
 	  
-	<c:if test="${sessionScope.m_id_=='sunny1980'}">
+	<c:if test="${dto.id==dto.id}">
 	  
+	
 	
 	  
 	  <center>
@@ -527,7 +530,7 @@
 	  	   	 	
 	  	   	 	
 	  	   	 		 <br><br>	
-	  	   	 		 
+	  	   	 	<%-- 	 
 	  	   	 		 
 	  	   	 	주소 : <b style="color:gray">${a.address}</b><br>
 	  	   	 	
@@ -558,7 +561,7 @@
 	  	   	 	부서 : <b style="color:gray">${a.department}</b><br>
 	  	   	 	
 	  	   	 	
-	  	   	 		 <br><br>	 
+	  	   	 		 <br><br>	 --%> 
 	  	   	 		 
 	  	   	 	<!-- <hr class="small">
 	  	   	 	

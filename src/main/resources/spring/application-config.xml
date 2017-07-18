@@ -68,6 +68,10 @@
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
 	</bean>
 	
+	<bean id="AdminDao" class="admin.model.AdminDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
 	
 	<bean id="CompanyDao" class="company.model.CompanyDao">
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
