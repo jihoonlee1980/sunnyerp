@@ -11,6 +11,7 @@ public class CompanyDto {
 	private String name;
 	private String address;
 	private String hp;
+	private String faxno;
 	private String companyno;
 	private String filename;
 	private Timestamp gaipday;
@@ -50,13 +51,18 @@ public class CompanyDto {
 	public void setHp(String hp) {
 		this.hp = hp;
 	}
+	public String getFaxno() {
+		return faxno;
+	}
+	public void setFaxno(String faxno) {
+		this.faxno = faxno;
+	}
 	public String getCompanyno() {
 		return companyno;
 	}
 	public void setCompanyno(String companyno) {
 		this.companyno = companyno;
 	}
-	
 	public String getFilename() {
 		return filename;
 	}
@@ -83,8 +89,7 @@ public class CompanyDto {
 	}
 	
 	
-	
-	
+
 	
 	
 }

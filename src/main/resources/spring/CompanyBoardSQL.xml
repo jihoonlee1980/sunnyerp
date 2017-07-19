@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from company
 	</select>
 	<insert id="insertOfCompany" parameterType="companydto">
-		insert into company (id,name,address,hp,companyno,filename,gaipday) 
-		values (#{id},#{name},#{address},#{hp},#{companyno},#{filename},now())
+		insert into company (id,name,address,hp,companyno,faxno,filename,gaipday) 
+		values (#{id},#{name},#{address},#{hp},#{companyno},#{faxno},#{filename},now())
 	</insert>
 	<select id="pageingListOfCompany" parameterType="HashMap" resultType="companydto">
 		select * from company order by num desc limit #{start},#{perpage}
@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<update id="updateOfCompany" parameterType="companydto">
-		update company set address=#{address},hp=#{hp},companyno=#{companyno} where num=#{num}
+		update company set address=#{address},hp=#{hp},companyno=#{companyno},faxno=#{faxno} where num=#{num}
 	</update>
 	
 	<!-- <update id="updateReadcountOfMyBoard" parameterType="int">

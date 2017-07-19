@@ -245,34 +245,21 @@
 				return false;
 			}
 			if(f.name.value==''){
-				alert("이름을 입력해 주세요");
-				return false;
-			}
-			if(f.gender.value==''){
-				alert("성별을 선택해 주세요");
-				return false;
-			}
-			if(f.address.value==''){
-				alert("주소를 입력해 주세요");
+				alert("회사이름을 입력해 주세요");
 				return false;
 			}
 			if(f.hp.value==''){
-				alert("핸드폰을 입력해 주세요");
+				alert("전화번호를 입력해 주세요");
 				return false;
 			}
-			/* if(f.email.value==''){
-				alert("이메일을 입력해 주세요");
+			if(f.faxno.value==''){
+				alert("팩스번호를 입력해 주세요");
 				return false;
 			}
-			if(f.grade.value==''){
-				alert("직급을 선택해 주세요");
-				return false;
-			} */
-			 
 			if(f.companyno.value==''){
-				alert("부서를 선택해 주세요");
+				alert("사업자번호를 입력해 주세요");
 				return false;
-			} 
+			}
 			
 			if(f.f_id.value==''){
 				alert("파일을 선택해 주세요");
@@ -336,7 +323,7 @@
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
                       <li><a href="${root}/admin/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
+                      <li><a href="${root}/mypage/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -459,7 +446,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="${root}/personal/list.do"> Profile</a></li>
+                    <li><a href="${root}/mypage/list.do"> Profile</a></li>
                     <!-- <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
@@ -592,19 +579,26 @@
  		<table id="file_table" class="table table-bordered">
  		
  		 <tr>
- 		 	<td align="center"><b style="color: gray;">아이디(Id)</b></td>
+ 		 	<td align="center"><b style="color: gray;">등록자(Id)</b></td>
  		 	<td align="center">
  		 		<input type="text" name="id" id="id" required="required" class="form-control" 
  		 		value="${sessionScope.m_id_}" readonly="readonly">
  		 	</td>
  		 </tr>
  		 <tr>
- 		 	<td align="center"><b style="color: gray;">이름(Name)</b></td>
+ 		 	<td align="center"><b style="color: gray;">회사이름(Name)</b></td>
  		 	<td align="center">
- 		 		<input type="text" name="name" id="name" required="required" class="form-control"
- 		 		value="${sessionScope.m_nick}" readonly="readonly">
+ 		 		<input type="text" name="name" id="name" required="required" class="form-control" 
+ 		 		value="${sessionScope.m_level}" readonly="readonly">
  		 	</td>
  		 </tr>
+ 		<%--  <tr>
+ 		 	<td align="center"><b style="color: gray;">회사이름(Companyname)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="companyname" id="companyname" required="required" class="form-control"
+ 		 		value="${sessionScope.m_level}" readonly="readonly">
+ 		 	</td>
+ 		 </tr> --%>
  		 
  		 
  		 
@@ -643,17 +637,24 @@
  		 
  		 
  		  <tr>
- 		 	<td align="center"><b style="color: gray;">주소(Address)</b></td>
+ 		 	<td align="center"><b style="color: gray;">회사주소(Address)</b></td>
  		 	<td align="center">
  		 		<input type="text" name="address" id="address" required="required" class="form-control"
  		 		placeholder="신주소, 도로명 포함  예 ) 광주광역시 광산구 수등로 94번길 31">
  		 	</td>
  		 </tr>
  		 <tr>
- 		 	<td align="center"><b style="color: gray;">핸드폰(Hp)</b></td>
+ 		 	<td align="center"><b style="color: gray;">전화번호(Phone)</b></td>
  		 	<td align="center">
  		 		<input type="text" name="hp" id="hp" required="required" class="form-control"
- 		 		placeholder="-없이,  예 ) 01012345678">
+ 		 		placeholder="예 ) 02-123-4567">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">팩스번호(Fax)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="faxno" id="faxno" required="required" class="form-control"
+ 		 		placeholder="예 ) 02-456-7890">
  		 	</td>
  		 </tr>
  		 <tr>

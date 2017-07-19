@@ -204,6 +204,23 @@
 
 		 });
 		
+		
+		//work1 변경시 이메일주소를 work로 보냄
+		 //직접입력인 경우에는 work 의 기존값을 지우고 포커스 보내기
+
+		 $(function(){
+
+		 $("#work1").change(function(){
+		 	if($(this).val()==" "){
+		 		$("#work").val("");
+		 		$("#work").focus();
+		 	}else{
+		 		$("#work").val($(this).val());
+		 	}
+		 });
+
+		 });
+		
 		   
 		   
 		</script>
@@ -274,7 +291,10 @@
 				return false;
 			} 
 			
-			
+			if(f.work.value==''){
+				alert("재직여부를 선택해 주세요");
+				return false;
+			}
 			 
 			
 			
@@ -332,7 +352,7 @@
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
                       <li><a href="${root}/admin/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
+                      <li><a href="${root}/mypage/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -456,7 +476,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="${root}/personal/list.do"> Profile</a></li>
+                    <li><a href="${root}/mypage/list.do"> Profile</a></li>
                     <!-- <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
@@ -628,7 +648,8 @@
  		 <tr>
 					<td align="center"><b style="color: gray;">성별(Gender)</b></td>
 				<td align="center">
-		<input type="text" name="gender" id="gender" class="form-control" required="required" placeholder="직접입력 또는 성별선택">
+		<input type="text" name="gender" id="gender" class="form-control" required="required" placeholder="직접입력 또는 성별선택"
+		value="${personaldto.gender}">
 		
 			<div class="form-group">
 			
@@ -669,7 +690,8 @@
  		 <tr>
 					<td align="center"><b style="color: gray;">직급(Grade)</b></td>
 				<td align="center">
-		<input type="text" name="grade" id="grade" class="form-control" required="required" placeholder="직접입력 또는 직급선택">
+		<input type="text" name="grade" id="grade" class="form-control" required="required" placeholder="직접입력 또는 직급선택"
+		value="${personaldto.grade}">
 		
 			<div class="form-group">
 			
@@ -699,7 +721,8 @@
 		<tr>
 					<td align="center"><b style="color: gray;">부서(Department)</b></td>
 				<td align="center">
-		<input type="text" name="department" id="department" class="form-control" required="required" placeholder="직접입력 또는 부서선택">
+		<input type="text" name="department" id="department" class="form-control" required="required" placeholder="직접입력 또는 부서선택"
+		value="${personaldto.department}">
 		
 			<div class="form-group">
 			
@@ -725,6 +748,24 @@
 	</td>
 		</tr>
  		 
+ 		 
+ 		  <tr>
+					<td align="center"><b style="color: gray;">재직여부(Work)</b></td>
+				<td align="center">
+		<input type="text" name="work" id="work" class="form-control" required="required" placeholder="직접입력 또는 재직여부선택"
+		value="${personaldto.work}">
+		
+			<div class="form-group">
+			
+			<select name="work1" id="work1">
+				<option value=" ">직접입력</option>
+				<option value="재직">재직</option>
+				<!-- <option value="휴직">휴직</option> -->
+				<option value="퇴직">퇴직</option>				
+			</select>
+		</div>
+	</td>
+		</tr>
  		 
  		 
  		 

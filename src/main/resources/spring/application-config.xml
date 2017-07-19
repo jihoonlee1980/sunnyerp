@@ -72,6 +72,10 @@
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
 	</bean>
 	
+	<bean id="MypageDao" class="mypage.model.MypageDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
 	
 	<bean id="CompanyDao" class="company.model.CompanyDao">
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
@@ -92,9 +96,7 @@
 	<bean id="main_beomDAO" class="main_beom.model.main_jakgokDAO">
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
 	</bean>
-	<bean id="mypageDAO" class="mypage.model.MyPageDAO">
-		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
-	</bean>
+	
 </beans>
  
 

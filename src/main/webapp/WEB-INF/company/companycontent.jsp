@@ -290,7 +290,7 @@
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
                       <li><a href="${root}/admin/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
+                      <li><a href="${root}/mypage/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -406,7 +406,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="${root}/personal/list.do"> Profile</a></li>
+                    <li><a href="${root}/mypage/list.do"> Profile</a></li>
                     <!-- <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
@@ -514,19 +514,19 @@
 	
 		
 		<tr>
-		<td align="center">작성자(Writer)</td>
+		<td align="center">등록자(Id&Name)</td>
 				<td align="center">
 		
-		<b style="color: gray;">${dto.id}</b>
+		<b style="color: gray;">${dto.id}&nbsp;[${sessionScope.m_nick}]</b>
 		</td></tr>
 		
 	
 		
 		<tr>
-		<td align="center">이름(Name)</td>
+		<td align="center">회사이름(Companyname)</td>
 				<td align="center">
 		
-		<b style="color: gray;">${m_nick}</b>
+		<b style="color: gray;">${dto.name}</b>
 		
 		</td></tr>
 		
@@ -545,7 +545,7 @@
 		
 		
 				<tr>
-				<td align="center">주소(Address)</td>
+				<td align="center">회사주소(Address)</td>
 				<td align="center">
 	    
 				<b style="color: gray;">${dto.address}</b>
@@ -558,7 +558,7 @@
 			
 	    
 				<tr>
-				<td align="center">핸드폰(Hp)</td>
+				<td align="center">전화번호(Phone)</td>
 				<td align="center">
 	
 					<b style="color: gray;">${dto.hp}</b><br>
@@ -588,6 +588,15 @@
 					</td></tr> --%>
 					
 					
+				<tr>
+					<td align="center">팩스번호(Fax)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.faxno}</b><br>
+					
+					
+					</td></tr>
+				
 				
 					
 					

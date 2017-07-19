@@ -5,11 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="main_beom">
 
     <select id="main_selectDataOfBoard" resultType="mjdto">
-   		 select * from personal order by num desc limit 1
+   		 select * from mysqlboard order by num desc limit 1
     </select>
 
 	<select id="main_selectJaksaOfBoard" resultType="msdto">
-		select * from personal order by num desc limit 1
+		select * from mysqlboard order by num desc limit 1
 	</select>
 	<!-- <select id="countOfAnswer" parameterType="int" resultType="int">
 		select count(*) from answer where num=#{num}

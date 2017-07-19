@@ -332,7 +332,7 @@
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
                       <li><a href="${root}/admin/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
+                      <li><a href="${root}/mypage/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -456,7 +456,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="${root}/personal/list.do"> Profile</a></li>
+                    <li><a href="${root}/mypage/list.do"> Profile</a></li>
                     <!-- <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>

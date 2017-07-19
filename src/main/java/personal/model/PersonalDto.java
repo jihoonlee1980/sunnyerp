@@ -15,11 +15,11 @@ public class PersonalDto {
 	private String email;
 	private String grade;
 	private String department;
+	private String work;
 	private String filename;
 	private Timestamp gaipday;
 	private ArrayList<MultipartFile> upfile;
 	private int answer;//해당 글에 달린 댓글 갯수를 저장
-	
 	
 	
 	
@@ -77,7 +77,12 @@ public class PersonalDto {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	
+	public String getWork() {
+		return work;
+	}
+	public void setWork(String work) {
+		this.work = work;
+	}
 	public String getFilename() {
 		return filename;
 	}
@@ -102,8 +107,6 @@ public class PersonalDto {
 	public void setAnswer(int answer) {
 		this.answer = answer;
 	}
-	
-	
 	
 	
 	

@@ -18,14 +18,14 @@ import org.springframework.web.servlet.ModelAndView;
 import login.model.LoginDAO;
 import main_beom.model.main_jakgokDTO;
 import main_beom.model.main_jaksaDTO;
-import mypage.model.MyPageDAO;
+
 
 @SessionAttributes("m_id")
 @Controller
 public class LoginController {
 	
-	@Autowired
-	private MyPageDAO mypagedao;
+	/*@Autowired
+	private MyPageDAO mypagedao;*/
 	
 	@Autowired
 	private LoginDAO logindao;
@@ -72,7 +72,7 @@ public class LoginController {
 		return view;
 	}
 	
-	@RequestMapping("/myPageForm.do")
+	/*@RequestMapping("/myPageForm.do")
 	public String goMyPage(
 			HttpSession session,
 			Model model
@@ -102,6 +102,6 @@ public class LoginController {
 		
 		model.addAttribute("m_profile",m_profile);
 		return "/1/login/myPageForm";
-	}
+	}*/
 }
 

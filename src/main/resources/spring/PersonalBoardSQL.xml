@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from personal
 	</select>
 	<insert id="insertOfPersonal" parameterType="personaldto">
-		insert into personal (id,name,gender,address,hp,email,grade,department,filename,gaipday) 
-		values (#{id},#{name},#{gender},#{address},#{hp},#{email},#{grade},#{department},#{filename},now())
+		insert into personal (id,name,gender,address,hp,email,grade,department,work,filename,gaipday) 
+		values (#{id},#{name},#{gender},#{address},#{hp},#{email},#{grade},#{department},#{work},#{filename},now())
 	</insert>
 	<select id="pageingListOfPersonal" parameterType="HashMap" resultType="personaldto">
 		select * from personal order by num desc limit #{start},#{perpage}
@@ -30,7 +30,8 @@ b.room_name5, b.room_person5, b.room_price5, b.room_occupation5
 	</delete>
 	
 	<update id="updateOfPersonal" parameterType="personaldto">
-		update personal set gender=#{gender},address=#{address},hp=#{hp},email=#{email},grade=#{grade},department=#{department} where num=#{num}
+		update personal set gender=#{gender},address=#{address},hp=#{hp},email=#{email},grade=#{grade},department=#{department},work=#{work} 
+		where num=#{num}
 	</update>
 	
 	<!-- <update id="updateReadcountOfMyBoard" parameterType="int">

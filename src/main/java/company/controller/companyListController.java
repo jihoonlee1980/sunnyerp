@@ -33,7 +33,7 @@ public class companyListController {
 		totalCount=myDao.getTotalcount();
 
 		//페이징에 처리에 필요한 변수들
-		int perPage=10; //한페이지당 보여지는 게시글의 갯수
+		int perPage=1; //한페이지당 보여지는 게시글의 갯수
 
 		int totalPage;//총페이지수
 		int startNum;//각페이지당 보여지는 글의 시작번호

@@ -131,7 +131,7 @@
                     <ul class="nav child_menu">
                     	<li><a href="${root}/joinForm.do">회원가입</a></li>
                       <li><a href="${root}/admin/list.do">관리자페이지</a></li>
-                      <li><a href="${root}/admin/list.do">마이페이지</a></li>
+                      <li><a href="${root}/mypage/list.do">마이페이지</a></li>
                       <%-- <li><a href="${root}/save/index3.html">Dashboard3</a></li> --%>
                     </ul>
                   </li>
@@ -255,7 +255,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="${root}/personal/list.do"> Profile</a></li>
+                    <li><a href="${root}/mypage/list.do"> Profile</a></li>
                     <!-- <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
@@ -400,14 +400,193 @@
 	  </div>
 	  
 	  
+	  <br><br>
+	  
+	 
+	  
+	  <b style="color: gray;"><a target="_blank" href="http://www.google.co.kr/chrome/">구글 크롬(Chrome Download)</a> 
+	  <br>  
+	  <a target="_blank" href="https://support.apple.com/ko_KR/downloads/safari">
+	   사파리(Safari Download)</a> 에서!
+	  
+	  	<br>최적의 상태를 제공합니다.</b>
+	  
+	  
+	     <br><br><br>
+	 
+	 
+	 
+	 
+	 
+	  
+	  
+	   <div class="item">
+	   
+	   
+	   
+
+
+	   
+	    <a target="_blank" href="http://192.168.0.13:8081/">
+	    
+	   
+	    <b style="color: orange;">[실시간 모션 스트리밍]<br>
+	  <b style="color: blue;">우리회사! 영상보기(▼)</b></b>
+	  
 	  
 	
+	 
+	  <br><br><br>
+	   
+                           
+                                <img src="${root}/save/resources/img/slide/cctv1.png" alt="" width="100" height="100"></a>
+                            </div>
 	
+	
+	  
+	  <br><br>
+	  
+	  
+	  
+	  <!-- <script>
+
+var agent = navigator.userAgent.toLowerCase(); //현재 브라우저 정보를 소문자로 받아온다.
+
+if(agent.indexOf("windows nt 5.1") >= 0) // OS 식별
+
+ alert("Windows XP");
+
+else if(agent.indexOf("windows nt 6.0") >=0)
+
+ alert("Windows Vista");
+
+else if(agent.indexOf("windows nt 6.1") >= 0)
+
+ alert("Windows 7");
+
+else if(agent.indexOf("windows nt 6.3") >= 0) // windows 10
+
+ alert("windows 10");
+
+else if(agent.indexOf("windows phone 8.1") >= 0)
+
+ alert("Windows Phone 8.1");
+
+else if(agent.indexOf("windows PHONE 10.0") >= 0)
+
+ alert("Windows Phone 10.0");
+
+else if(agent.indexOf("android") >= 0 )
+
+ alert("Android");
+
+else if(agent.indexOf("iphone") >= 0 )
+
+ alert("IPhone");
+
+else if(agent.indexOf("ipad") >= 0 )
+
+ alert("IPad");
+
+else if(agent.indexOf("ipod") >= 0 )
+
+ alert("IPod");
+
+else if(agent.indexOf("mac") >= 0 )
+
+ alert("mac");
+
+else
+
+ alert(agent);
+
+
+
+
+if(agent.indexOf("msie 7") >= 0) // 브라우저 식별
+
+ alert("IE 7");
+
+else if(agent.indexOf("msie 8") >= 0)
+
+ alert("IE 8");
+
+else if(agent.indexOf("msie 9") >= 0)
+
+ alert("IE 9");
+
+else if(agent.indexOf("msie 10") >= 0) // IE 10
+
+ if(agent.indexOf("Touch") >= 0) // IE10 on a machine with touch-capable hardware
+
+  alert("IE 10 on Touch");
+
+ else
+
+  alert("IE 10");
+
+else if(agent.indexOf("rv:11.0") >= 0)
+
+ alert("IE 11");
+
+else if(agent.indexOf("edge/12.0") >= 0)
+
+ alert("Spartan");
+
+else if(agent.indexOf("chrome") >= 0)
+
+ alert("Chrome");
+
+else if(agent.indexOf("safari") >= 0)
+
+ alert("Safari");
+
+else if(agent.indexOf("firefox") >= 0)
+
+ alert("Firefox");
+
+else if(agent.indexOf("opera") >= 0)
+
+ alert("Opera");
+
+else
+
+ alert(agent);
+
+
+
+
+if(agent.indexOf("win64") >= 0) // 처리방식 식별
+
+ alert("64bit")
+
+else if(agent.indexOf("wow64") >= 0)
+
+ alert("32-bit IE on 64-bit");
+
+else if(agent.indexOf("arm") >= 0)
+
+ alert("Windows RT");
+
+else
+
+ alert("32bit");
+
+
+
+
+</script> -->
+	  
+	 <!--  <embed src="http://192.168.0.13:8081/" width="250" height="200"></embed></a>
+	  
+	  
+	  <iframe src="http://192.168.0.13:8081/" width="300" height="300"></iframe>
+	  
+	  <br><br> -->
 	  
 	  </center>
 	  
 	
-	<br><br>
 	  
 	  
 	  <center>
@@ -484,7 +663,7 @@
 	  	   	 	
 	  	   	 	<a href="content.do?num=${a.num}&pageNum=${currentPage}">
 	  	   	 	
-	  	   	 	등록(수정)자 : <b style="color:gray">${a.id}</b><br>
+	  	   	 	등록(수정)자 : <b style="color:gray">${a.id}&nbsp;[${sessionScope.m_nick}]</b><br>
 	  	   	 	
 	  	   	 	<!-- <span style="color: gray;text-overflow:ellipsis;overflow: hidden;
 				 white-space: nowrap;display: block;max-width: 200px;"> -->
@@ -535,7 +714,14 @@
 	  	   	 	전화번호 : <b style="color:gray">${a.hp}</b><br>
 	  	   	 	
 	  	   	 	
-	  	   	 		 <br><br>	 
+	  	   	 		 <br><br>	
+	  	   	 		 
+	  	   	 		 
+	  	   	 		 
+	  	   	 	팩스번호 : <b style="color:gray">${a.faxno}</b><br>
+	  	   	 	
+	  	   	 	
+	  	   	 		 <br><br>	 	  
 	  	   	 		 	 	 
 	  	   	 
 	  	   	 	
@@ -547,10 +733,7 @@
 	  	   	 		 
 	  	   	 		 
 	  	   	 		 
-	  	   	 		 <div class="item">
-                            <a target="_blank" href="http://192.168.0.13:8081/">
-                                <img class="img-responsive img-full" src="${root}/save/resources/img/slide/sunny5.png" alt=""></a>
-                            </div>
+	  	   	 		
 	  	   	 		 
 	  	   	 	<!-- <hr class="small">
 	  	   	 	
