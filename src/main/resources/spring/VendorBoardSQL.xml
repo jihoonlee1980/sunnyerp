@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vendor">
+	<select id="countOfVendor" resultType="int">
+		select count(*) from vendor
+	</select>
+	<insert id="insertOfVendor" parameterType="vendordto">
+		insert into vendor (id,name,companyname,companyno,phone,faxno,email,address,sellvendor,buyvendor,productvendor,filename,gaipday) 
+		values (#{id},#{name},#{companyname},#{companyno},#{phone},#{faxno},#{email},#{address},#{sellvendor},#{buyvendor},#{productvendor},#{filename},now())
+	</insert>
+	<select id="pageingListOfVendor" parameterType="HashMap" resultType="vendordto">
+		select * from vendor order by num desc limit #{start},#{perpage}
+	</select>
+	<select id="dataOfVendor" parameterType="int" resultType="vendordto">
+		select * from vendor where num=#{num}
+	</select>
+	<delete id="deleteOfVendor" parameterType="int">
+		delete from vendor where num=#{num}
+	</delete>
+	
+	<update id="updateOfVendor" parameterType="vendordto">
+		update vendor set companyname=#{companyname},companyno=#{companyno},phone=#{phone},faxno=#{faxno},
+		email=#{email},address=#{address},sellvendor=#{sellvendor},buyvendor=#{buyvendor},productvendor=#{productvendor} 
+		where num=#{num}
+	</update>
+	
+	<!-- <update id="updateReadcountOfMyBoard" parameterType="int">
+		update personal set readcount=readcount+1 where num=#{num}
+	</update> -->
+	
+	
+	<select id="writerOfVendor" parameterType="int" resultType="String">
+		select m_nick from member1 where num=#{num}
+	</select>
+	
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
