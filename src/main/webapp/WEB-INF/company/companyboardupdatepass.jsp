@@ -245,34 +245,25 @@
 				return false;
 			}
 			if(f.name.value==''){
-				alert("이름을 입력해 주세요");
-				return false;
-			}
-			if(f.gender.value==''){
-				alert("성별을 선택해 주세요");
+				alert("회사이름을 입력해 주세요");
 				return false;
 			}
 			if(f.address.value==''){
-				alert("주소를 입력해 주세요");
+				alert("회사주소를 입력해 주세요");
 				return false;
 			}
 			if(f.hp.value==''){
-				alert("핸드폰을 입력해 주세요");
+				alert("전화번호를 입력해 주세요");
 				return false;
 			}
-			/* if(f.email.value==''){
-				alert("이메일을 입력해 주세요");
+			if(f.faxno.value==''){
+				alert("팩스번호를 입력해 주세요");
 				return false;
 			}
-			if(f.grade.value==''){
-				alert("직급을 선택해 주세요");
-				return false;
-			} */
-			 
 			if(f.companyno.value==''){
-				alert("부서를 선택해 주세요");
+				alert("사업자번호를 입력해 주세요");
 				return false;
-			} 
+			}
 			
 			if(f.f_id.value==''){
 				alert("파일을 선택해 주세요");
@@ -282,7 +273,6 @@
 			
 			
 		}
-		
 		
 		
 	</script>

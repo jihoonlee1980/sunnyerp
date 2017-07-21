@@ -248,6 +248,10 @@
 				alert("회사이름을 입력해 주세요");
 				return false;
 			}
+			if(f.address.value==''){
+				alert("회사주소를 입력해 주세요");
+				return false;
+			}
 			if(f.hp.value==''){
 				alert("전화번호를 입력해 주세요");
 				return false;

@@ -384,7 +384,7 @@ snsArray['google'] = "https://plus.google.com/share?url=" + encodeURIComponent(s
 						
 						<c:if test="${ext=='jpg' || ext=='JPG'|| ext=='gif'|| ext=='GIF'
 							|| ext=='png'|| ext=='PNG' || ext=='MP4'}">
-							<img src="${root}/save/${im}" width=300" height="300">
+							<img src="${root}/save/${im}" style="max-width: 280px;max-height:280px;">
 							  	<br><br>		
 							  	
 							  	

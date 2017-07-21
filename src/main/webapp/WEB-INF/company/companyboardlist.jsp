@@ -404,7 +404,7 @@
 	  
 	 
 	  
-	  <b style="color: gray;"><a target="_blank" href="http://www.google.co.kr/chrome/">구글 크롬(Chrome Download)</a> 
+	  <b style="color: gray;"><a target="_blank" href="http://www.google.co.kr/chrome/">구글 크롬(Chrome Download)</a> 및 
 	  <br>  
 	  <a target="_blank" href="https://support.apple.com/ko_KR/downloads/safari">
 	   사파리(Safari Download)</a> 에서!
@@ -427,7 +427,7 @@
 
 
 	   
-	    <a target="_blank" href="http://192.168.0.13:8081/">
+	    <a target="_blank" href="http://192.168.0.16:8081/">
 	    
 	   
 	    <b style="color: orange;">[실시간 모션 스트리밍]<br>
@@ -682,7 +682,7 @@ else
        <source src="${root}/save/${a.filename}" type="video/mp4">
      
      </video> --%>
-     				 <img src="${root}/save/${a.filename}" width="100" height="100">
+     				 <img src="${root}/save/${a.filename}" style="max-width: 280px;max-height:280px;">
      				
 	  	   	 		
 	  	   	 		

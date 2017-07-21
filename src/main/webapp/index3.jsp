@@ -495,7 +495,8 @@ snsArray['google'] = "https://plus.google.com/share?url=" + encodeURIComponent(s
                     2017. 04. 08<br>
                     	설립 되었습니다.<br><br></p>
               		<h5>-. [2017.05.25] &nbsp;2018 평창동계올림픽대회<br> 공모전 1차 합격<br><br></h5>     
-                    <h5>-. [2017.06.15] &nbsp;정보통신산업진흥원<br>SW스타트업 창업지원 선정<br></h5>
+                    <h5>-. [2017.06.15] &nbsp;정보통신산업진흥원<br>SW스타트업 창업지원 선정<br><br></h5>
+                    <h5>-. [2017.07.01] &nbsp;첫 상용화 프로젝트<br>[SunnyErp] 개발진행(7~10월)<br></h5>
                     <br><br>
                     
                 </div>
@@ -525,8 +526,9 @@ snsArray['google'] = "https://plus.google.com/share?url=" + encodeURIComponent(s
                     4) 업&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : <br>온라인 모바일 게임소프트웨어 개발 및 공급업,<br>기타 게임소프트웨어 개발 및 공급업 
                     <br>응용소프트웨어 개발 및 공급업,<br>시스템                  
                     <br><br><br>
-                    5)<a target="_blank" href="http://factorysunny.com/"> http://factorysunny.com/</a><br><br><br>
-                   6)<a href="mailto:seun80@hanmail.net"> seun80@hanmail.net</a><br>
+                    5) 개&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;발 : ios, android, web, IoT<br><br><br>
+                    6)<a target="_blank" href="http://factorysunny.com/"> http://factorysunny.com/</a><br><br><br>
+                   7)<a href="mailto:seun80@hanmail.net"> seun80@hanmail.net</a><br>
                    </h5>
                 </div><br>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">

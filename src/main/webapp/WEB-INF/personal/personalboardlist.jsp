@@ -506,7 +506,7 @@
        <source src="${root}/save/${a.filename}" type="video/mp4">
      
      </video> --%>
-     				 <img src="${root}/save/${a.filename}" width="100" height="100">
+     				 <img src="${root}/save/${a.filename}" style="max-width: 280px;max-height:280px;">
      				
 	  	   	 		
 	  	   	 		
