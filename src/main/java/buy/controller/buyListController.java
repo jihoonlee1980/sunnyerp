@@ -1,10 +1,10 @@
-package admin.controller;
+package buy.controller;
 
 import java.util.List;
 import java.util.Locale;
 
-import admin.model.AdminDao;
-import admin.model.AdminDto;
+import buy.model.BuyDao;
+import buy.model.BuyDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class adminListController {
+public class buyListController {
 
 	@Autowired
-	private AdminDao myDao;
+	private BuyDao myDao;
 
-	@RequestMapping("/admin/list.do")	
+	@RequestMapping("/buy/list.do")	
 	public ModelAndView mysql_list(
 			@RequestParam(value="pageNum",defaultValue="1") int currentPage
 			)
@@ -33,7 +33,7 @@ public class adminListController {
 		totalCount=myDao.getTotalcount();
 
 		//페이징에 처리에 필요한 변수들
-		int perPage=1; //한페이지당 보여지는 게시글의 갯수
+		int perPage=10; //한페이지당 보여지는 게시글의 갯수
 
 		int totalPage;//총페이지수
 		int startNum;//각페이지당 보여지는 글의 시작번호
@@ -69,7 +69,7 @@ public class adminListController {
 		int no=totalCount-(currentPage-1)*perPage;
 
 		//db 에서 필요한만큼 데이타 가져오기
-		List<AdminDto> list=myDao.getList(startNum, perPage);
+		List<BuyDto> list=myDao.getList(startNum, perPage);
 
 
 		model.addObject("totalCount",totalCount);
@@ -80,7 +80,7 @@ public class adminListController {
 		model.addObject("totalPage",totalPage);
 		model.addObject("currentPage",currentPage);
 
-		model.setViewName("/1/admin/adminboardlist");
+		model.setViewName("/1/buy/buyboardlist");
 		return model;
 	}
 }

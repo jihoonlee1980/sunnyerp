@@ -1,12 +1,12 @@
-package admin.controller;
+package buy.controller;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 
 
-import admin.model.AdminDao;
-import admin.model.AdminDto;
+import buy.model.BuyDao;
+import buy.model.BuyDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class adminContentController {
+public class buyContentController {
 	@Autowired
-	private AdminDao myDao;
+	private BuyDao myDao;
 	
 	
 	
-	@RequestMapping("/admin/content.do")
+	@RequestMapping("/buy/content.do")
 	public ModelAndView view(@RequestParam int num,
 			
 			@RequestParam(value="pageNum",defaultValue="1") String pageNum,
@@ -37,7 +37,7 @@ public class adminContentController {
 					myDao.updateReadcount(num);
 		 
 		ModelAndView model=new ModelAndView();
-		AdminDto dto=myDao.getData(num);
+		BuyDto dto=myDao.getData(num);
 		
 		
 		
@@ -55,7 +55,7 @@ public class adminContentController {
 
 		model.addObject("myadto", myDao);
 		model.addObject("pageNum",pageNum);
-		model.setViewName("/1/admin/admincontent");
+		model.setViewName("/1/buy/buycontent");
 		
 		
 		return model;

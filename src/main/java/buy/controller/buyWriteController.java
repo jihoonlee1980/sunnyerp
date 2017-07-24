@@ -1,34 +1,33 @@
-package admin.controller;
+package buy.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import admin.model.AdminDao;
-import admin.model.AdminDto;
+import buy.model.BuyDao;
+import buy.model.BuyDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import spring.util.SpringFileWriter;
 
 @Controller
-public class adminWriteController {
+public class buyWriteController {
 	@Autowired
-	private AdminDao myDao;
+	private BuyDao myDao;
 	
-	@RequestMapping("/admin/adminwriteform.do")
+	@RequestMapping("/buy/buywriteform.do")
 	public String mysql_form()
 	{
-		return "/1/admin/adminwriteform";
+		return "/1/buy/buywriteform";
 	}
 	
-	/*@RequestMapping(value="/admin/upload.do",method=RequestMethod.POST)
-	public String form_read(@ModelAttribute AdminDto dto,HttpServletRequest request)
+	/*@RequestMapping(value="/buy/upload.do",method=RequestMethod.POST)
+	public String form_read(@ModelAttribute BuyDto dto,HttpServletRequest request)
 	{
 		String path=request.getSession().getServletContext().getRealPath("/save");
 		System.out.println(path);

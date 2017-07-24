@@ -1,6 +1,6 @@
-package admin.controller;
+package buy.controller;
 
-import admin.model.AdminDao;
+import buy.model.BuyDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,13 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class admindeleteController {
+public class buydeleteController {
 	
 	@Autowired
-	private AdminDao mydao;
+	private BuyDao mydao;
 	
 	
-	@RequestMapping("/admin/adminboarddeletepassform.do")
+	@RequestMapping("/buy/buyboarddeletepassform.do")
 	public ModelAndView delform(
 			@RequestParam int num,
 			@RequestParam String pageNum
@@ -27,11 +27,11 @@ public class admindeleteController {
 		ModelAndView model=new ModelAndView();
 		model.addObject("num",num);
 		model.addObject("pageNum",pageNum);
-		model.setViewName("/1/admin/adminboarddeletepass");
+		model.setViewName("/1/buy/buyboarddeletepass");
 		return model;
 	}
 	
-	@RequestMapping("/admin/adminboarddeletepass.do")
+	@RequestMapping("/buy/buyboarddeletepass.do")
 	public String delete(
 			@RequestParam int num,
 			@RequestParam String pageNum

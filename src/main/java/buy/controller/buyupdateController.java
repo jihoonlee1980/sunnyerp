@@ -1,7 +1,7 @@
-package admin.controller;
+package buy.controller;
 
-import admin.model.AdminDao;
-import admin.model.AdminDto;
+import buy.model.BuyDao;
+import buy.model.BuyDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,14 +15,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
 @Controller
-public class adminupdateController {
+public class buyupdateController {
 	
 	@Autowired
-	private AdminDao mydao;
+	private BuyDao mydao;
 	
 	
-	@RequestMapping("/admin/adminboardupdatepassform.do")
+	@RequestMapping("/buy/buyboardupdatepassform.do")
 	public ModelAndView updateform(
 			@RequestParam int num,
 			@RequestParam String pageNum
@@ -31,7 +32,7 @@ public class adminupdateController {
 		ModelAndView model=new ModelAndView();
 		model.addObject("num",num);
 		model.addObject("pageNum",pageNum);
-		model.setViewName("/1/admin/adminboardupdatepass");
+		model.setViewName("/1/buy/buyboardupdatepass");
 		return model;
 	}
 	
@@ -39,10 +40,10 @@ public class adminupdateController {
 	
 	
 	
-	@RequestMapping(value="/admin/adminboardupdatepass.do", method=RequestMethod.POST)
+	@RequestMapping(value="/buy/buyboardupdatepass.do", method=RequestMethod.POST)
 	public String update(
 			
-			@ModelAttribute AdminDto dto,
+			@ModelAttribute BuyDto dto,
 			@RequestParam String pageNum
 			)
 	{

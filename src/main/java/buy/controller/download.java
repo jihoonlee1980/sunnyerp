@@ -1,4 +1,4 @@
-package admin.controller;
+package buy.controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
