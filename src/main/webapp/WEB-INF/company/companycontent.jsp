@@ -655,7 +655,7 @@
 						
 						
 						<c:if test="${ext=='jpg' || ext=='JPG'|| ext=='gif'|| ext=='GIF'
-							|| ext=='png'|| ext=='PNG' || ext=='MP4'}">
+							|| ext=='png'|| ext=='PNG' || ext=='MP4'|| ext=='jpeg' || ext=='JPEG'}">
 							<img src="${root}/save/${im}" style="max-width: 280px;max-height:280px;">
 							  	<br><br>		
 							  	

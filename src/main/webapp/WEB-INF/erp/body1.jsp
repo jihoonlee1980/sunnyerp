@@ -65,7 +65,7 @@
     <link href="${root}/save/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="${root}/save/build/css/custom.min.css" rel="stylesheet">
+    <link href="${root}/save/build/css/custom.min.css?ver=1" rel="stylesheet">
     
     
     
@@ -114,6 +114,11 @@
       width: 10px;
       height: 10px;
     }
+    .container {
+	width: 100% !important;
+	padding-left:0px !important;
+	padding-right:0px !important;
+	}
   </style>
     
     

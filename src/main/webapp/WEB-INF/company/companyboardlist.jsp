@@ -427,7 +427,7 @@
 
 
 	   
-	    <a target="_blank" href="http://192.168.0.16:8081/">
+	    
 	    
 	   
 	    <b style="color: orange;">[실시간 모션 스트리밍]<br>
@@ -438,8 +438,14 @@
 	 
 	  <br><br><br>
 	   
-                           
-                                <img src="${root}/save/resources/img/slide/cctv1.png" alt="" width="100" height="100"></a>
+                           <a target="_blank" href="http://192.168.0.11:8082/">
+                                <img src="${root}/save/resources/img/slide/cctv1.png" alt="" width="100" height="100">
+                                <br>[Cam #1]</a>
+                             <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                                <br><br><br>
+                             <a target="_blank" href="http://192.168.0.11:8081/">
+                                <img src="${root}/save/resources/img/slide/cctv3.png" alt="" width="100" height="100">   
+                                <br>[Cam #2]</a> 
                             </div>
 	
 	

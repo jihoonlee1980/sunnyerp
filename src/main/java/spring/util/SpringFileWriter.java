@@ -14,7 +14,7 @@ public class SpringFileWriter {
 		try {
 			byte fileData[]=file.getBytes();
 			fos=new FileOutputStream(path+"\\"+fileName);
-		/*	fos=new FileOutputStream("/home/hosting_users/sunnyerp/tomcat/webapps/ROOT/save/"+"/"+fileName);*/
+			/*fos=new FileOutputStream("/home/hosting_users/sunnyerp/tomcat/webapps/ROOT/save/"+"/"+fileName);*/
 			fos.write(fileData);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

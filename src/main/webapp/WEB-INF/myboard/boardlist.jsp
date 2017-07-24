@@ -408,7 +408,7 @@ snsArray['google'] = "https://plus.google.com/share?url=" + encodeURIComponent(s
        <source src="${root}/save/${a.filename}" type="video/mp4">
      
      </video> --%>
-     				 <img src="${root}/save/${a.filename}" style="max-width: 280px;max-height:280px;border: 1px solid gray;">
+     				 <img src="${root}/save/${a.filename}" style="max-width: 280px;max-height:280px;">
      				
 	  	   	 		
 	  	   	 		

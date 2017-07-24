@@ -49,7 +49,7 @@
    
 
     <!-- Bootstrap Core CSS -->
-    <link href="${root}/save/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/resources/css/bootstrap.min.css?ver=2" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${root}/save/resources/css/landing-page.css" rel="stylesheet">

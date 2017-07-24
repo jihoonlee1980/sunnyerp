@@ -85,6 +85,10 @@
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
 	</bean>
 	
+	<bean id="BuyDao" class="buy.model.BuyDao">
+		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
+	</bean>
+	
 	
 	<bean id="joinDAO" class="join.model.JoinDAO">
 		<property name="sqlSessionTemplate" ref="mysqlSessionTemplate"/>
