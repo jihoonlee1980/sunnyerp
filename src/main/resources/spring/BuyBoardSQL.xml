@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from buy
 	</select>
 	<insert id="insertOfBuy" parameterType="buydto">
-		insert into buy (id,name,vendorno,buycodeno,buyvendor,productvendor,goodsno,buygoods,buycount,unitno,buycost,enterday,buymemo,gaipday) 
-		values (#{id},#{name},#{vendorno},#{buycodeno},#{buyvendor},#{productvendor},#{goodsno},#{buygoods},#{buycount},#{unitno},#{buycost},#{enterday},#{buymemo},now())
+		insert into buy (id,name,vendorno,buycodeno,buyvendor,productvendor,goodsno,buygoods,buycount,unitno,buycost,buytotal,supplyprice,tax,enterday,buymemo,filename,gaipday) 
+		values (#{id},#{name},#{vendorno},#{buycodeno},#{buyvendor},#{productvendor},#{goodsno},#{buygoods},#{buycount},#{unitno},#{buycost},#{buytotal},#{supplyprice},#{tax},#{enterday},#{buymemo},#{filename},now())
 	</insert>
 	<select id="pageingListOfBuy" parameterType="HashMap" resultType="buydto">
 		select * from buy order by num desc limit #{start},#{perpage}
@@ -22,7 +22,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="updateOfBuy" parameterType="buydto">
 		update buy set vendorno=#{vendorno},buycodeno=#{buycodeno},buyvendor=#{buyvendor},productvendor=#{productvendor},
-		goodsno=#{goodsno},buygoods=#{buygoods},buycount=#{buycount},unitno=#{unitno},buycost=#{buycost},enterday=#{enterday},buymemo=#{buymemo} 
+		goodsno=#{goodsno},buygoods=#{buygoods},buycount=#{buycount},unitno=#{unitno},buycost=#{buycost},buytotal=#{buytotal},
+		supplyprice=#{supplyprice},tax=#{tax},enterday=#{enterday},buymemo=#{buymemo} 
 		where num=#{num}
 	</update>
 	

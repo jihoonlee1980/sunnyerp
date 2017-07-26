@@ -26,14 +26,14 @@ public class buyWriteController {
 		return "/1/buy/buywriteform";
 	}
 	
-	/*@RequestMapping(value="/buy/upload.do",method=RequestMethod.POST)
+	@RequestMapping(value="/buy/upload.do",method=RequestMethod.POST)
 	public String form_read(@ModelAttribute BuyDto dto,HttpServletRequest request)
 	{
 		String path=request.getSession().getServletContext().getRealPath("/save");
 		System.out.println(path);
 		String filename="";
 		if(dto.getUpfile()==null)
-			filename="no";
+			filename="No File";
 		else{
 			try{
 				for(MultipartFile file:dto.getUpfile())
@@ -49,7 +49,7 @@ public class buyWriteController {
 			}catch(Exception e)
 			{
 				System.out.println("에러:"+e.getMessage());
-				filename="no";
+				filename="No File";
 			}
 		}
 		dto.setFilename(filename);	
@@ -58,7 +58,7 @@ public class buyWriteController {
 		myDao.insertMyboard(dto);
 		
 		return "redirect:list.do";
-	}*/
+	}
 	
 	
 	

@@ -1,6 +1,7 @@
 package buy.model;
 
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -15,15 +16,18 @@ public class BuyDto {
 	private String productvendor;
 	private String goodsno;
 	private String buygoods;
-	private int buycount;
+	private double buycount;
 	private String unitno;
-	private int buycost;
-	private int buytotal;
-	private int supplyprice;
-	private int tax;
-	private Timestamp enterday;
+	private double buycost;
+	private double buytotal;
+	private double supplyprice;
+	private double tax;
+	private String enterday;
 	private String buymemo;
+	private String filename;
 	private Timestamp gaipday;
+	private ArrayList<MultipartFile> upfile;
+	private int answer;//해당 글에 달린 댓글 갯수를 저장
 	
 	
 	
@@ -81,10 +85,10 @@ public class BuyDto {
 	public void setBuygoods(String buygoods) {
 		this.buygoods = buygoods;
 	}
-	public int getBuycount() {
+	public double getBuycount() {
 		return buycount;
 	}
-	public void setBuycount(int buycount) {
+	public void setBuycount(double buycount) {
 		this.buycount = buycount;
 	}
 	public String getUnitno() {
@@ -93,34 +97,34 @@ public class BuyDto {
 	public void setUnitno(String unitno) {
 		this.unitno = unitno;
 	}
-	public int getBuycost() {
+	public double getBuycost() {
 		return buycost;
 	}
-	public void setBuycost(int buycost) {
+	public void setBuycost(double buycost) {
 		this.buycost = buycost;
 	}
-	public int getBuytotal() {
+	public double getBuytotal() {
 		return buytotal;
 	}
-	public void setBuytotal(int buytotal) {
+	public void setBuytotal(double buytotal) {
 		this.buytotal = buytotal;
 	}
-	public int getSupplyprice() {
+	public double getSupplyprice() {
 		return supplyprice;
 	}
-	public void setSupplyprice(int supplyprice) {
+	public void setSupplyprice(double supplyprice) {
 		this.supplyprice = supplyprice;
 	}
-	public int getTax() {
+	public double getTax() {
 		return tax;
 	}
-	public void setTax(int tax) {
+	public void setTax(double tax) {
 		this.tax = tax;
 	}
-	public Timestamp getEnterday() {
+	public String getEnterday() {
 		return enterday;
 	}
-	public void setEnterday(Timestamp enterday) {
+	public void setEnterday(String enterday) {
 		this.enterday = enterday;
 	}
 	public String getBuymemo() {
@@ -129,14 +133,33 @@ public class BuyDto {
 	public void setBuymemo(String buymemo) {
 		this.buymemo = buymemo;
 	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	public Timestamp getGaipday() {
 		return gaipday;
 	}
 	public void setGaipday(Timestamp gaipday) {
 		this.gaipday = gaipday;
 	}
-
-
+	public ArrayList<MultipartFile> getUpfile() {
+		return upfile;
+	}
+	public void setUpfile(ArrayList<MultipartFile> upfile) {
+		this.upfile = upfile;
+	}
+	public int getAnswer() {
+		return answer;
+	}
+	public void setAnswer(int answer) {
+		this.answer = answer;
+	}
+	
+	
+	
 	
 	
 }

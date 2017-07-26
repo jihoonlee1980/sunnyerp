@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<%@page import="vendor.model.VendorDao"%>
-<%@page import="vendor.model.VendorDto"%>
+<%@page import="buy.model.BuyDao"%>
+<%@page import="buy.model.BuyDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -86,6 +86,14 @@
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
   <link rel="stylesheet" href="${root}/save/vendors/morris.js/morris.css">
 
+
+
+<!-- Datatables -->
+    <link href="${root}/save/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -493,11 +501,78 @@
 <br><br>
 
 
+	 
 	
 	
 	<center>
 	
-		<table style="margin: 0 auto;" class="table table-bordered">
+	<table id="file_table" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info">
+		
+		
+		
+		<div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                  <%--   <center>
+                    <h2>구매발주 <small>구매발주입력</small></h2>
+                    </center> --%>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                        <!-- <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul> -->
+                      </li>
+                     <!--  <li><a class="close-link"><i class="fa fa-close"></i></a> -->
+                   
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+		
+		
+		<center>
+		 <div class="x_content">
+                 <!--    <p class="text-muted font-13 m-b-30">
+                      The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
+                    </p> -->
+		
+		<div id="datatable-buttons_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+		<div class="dt-buttons btn-group">
+		<a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Copy</span></a>
+		<a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>CSV</span></a>
+		<a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Print</span></a></div>
+		<!-- <div id="datatable-buttons_filter" class="dataTables_filter">
+		<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div> -->
+		<!-- <table id="datatable-buttons" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info" style="width: 1031px;"> -->
+                     <!--  <thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" style="width: 158px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" style="width: 251px;" aria-label="Position: activate to sort column ascending">Position</th></tr>
+                      </thead> -->
+
+          </div>              
+              </div>
+            
+          <!--  <div id="datatable-buttons_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div>  -->
+             </center>   
+             
+             
+         
+		
+		<center>
+ 		<thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-sort="ascending" aria-label="Name: activate to sort column descending">Sort</th>
+                        <th class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">Sort</th></tr>
+                      </thead>
+ 		</center>
+ 		
+ 		 <tbody>
+		
+		
 		
 		<center>
 		
@@ -505,7 +580,7 @@
 		<br><br>
 		
 		<tr>
-		<td align="center">작성일자(Date)</td>
+		<td align="center">등록일자(Date)</td>
 				<td align="center">
 		
 		<b style="color: gray;">
@@ -523,32 +598,21 @@
 	
 		
 		<tr>
-		<td align="center">협력사명(Companyname)</td>
+		<td align="center">협력사코드(Vendorno)</td>
 				<td align="center">
 		
-		<b style="color: gray;">${dto.companyname}</b>
+		<b style="color: gray;">${dto.vendorno}</b>
 		
 		</td></tr>
 		
 	
-		
-					<%-- <tr>
-					<td align="center">성별(Gender)</td>
-					<td align="center">
-		
-					<b style="color: gray;">${dto.gender}</b>
-		
-					</td>
-					</tr> --%>
-		
-	
-		
+
 		
 				<tr>
-				<td align="center">협력사주소(Address)</td>
+				<td align="center">발주코드(Buycodeno)</td>
 				<td align="center">
 	    
-				<b style="color: gray;">${dto.address}</b>
+				<b style="color: gray;">${dto.buycodeno}</b>
 		
 		
 				</td>
@@ -558,10 +622,10 @@
 			
 	    
 				<tr>
-				<td align="center">전화번호(Phone)</td>
+				<td align="center">발주처(Buyvendor)</td>
 				<td align="center">
 	
-					<b style="color: gray;">${dto.phone}</b><br>
+					<b style="color: gray;">${dto.buyvendor}</b><br>
 					
 					</td>
 					</tr>
@@ -569,79 +633,9 @@
 				
 					
 					
-					<%-- <tr>
-					<td align="center">이메일(Email)</td>
-				<td align="center">
-					
-					<b style="color: gray;">${dto.email}</b><br>
-					
-					</td></tr> --%>
-			
-				
-					
-					
-				<%-- 	<tr>
-					<td align="center">직급(Grade)</td>
-				<td align="center">
-					
-					<b style="color: gray;">${dto.grade}</b><br>
-					</td></tr> --%>
-					
 					
 				<tr>
-					<td align="center">팩스번호(Fax)</td>
-				<td align="center">
-					
-					<b style="color: gray;">${dto.faxno}</b><br>
-					
-					
-					</td></tr>
-					
-					
-					<tr>
-					<td align="center">이메일(Email)</td>
-				<td align="center">
-					
-					<b style="color: gray;">${dto.email}</b><br>
-					
-					
-					</td></tr>
-				
-				
-					
-					
-					<tr>
-					<td align="center">사업자등록번호(Companyno)</td>
-				<td align="center">
-					
-					<b style="color: gray;">${dto.companyno}</b><br>
-					
-					
-					</td></tr>
-					
-					
-					<tr>
-					<td align="center">공급처(sellvendor)</td>
-				<td align="center">
-					
-					<b style="color: gray;">${dto.sellvendor}</b><br>
-					
-					
-					</td></tr>
-					
-					
-					<tr>
-					<td align="center">발주처(buyvendor)</td>
-				<td align="center">
-					
-					<b style="color: gray;">${dto.buyvendor}</b><br>
-					
-					
-					</td></tr>
-					
-					
-					<tr>
-					<td align="center">수급처(productvendor)</td>
+					<td align="center">수급처(Productvendor)</td>
 				<td align="center">
 					
 					<b style="color: gray;">${dto.productvendor}</b><br>
@@ -649,14 +643,123 @@
 					
 					</td></tr>
 					
+					
+					<tr>
+					<td align="center">품목코드(Goodsno)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.goodsno}</b><br>
+					
+					
+					</td></tr>
+				
+				
+					
+					
+					<tr>
+					<td align="center">발주품명(Buygoods)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.buygoods}</b><br>
+					
+					
+					</td></tr>
+					
+					
+					<tr>
+					<td align="center">발주수량(Buycount)</td>
+				<td align="center">
+					
+					
+				
+					<b style="color: gray;">
+					
+					<fmt:formatNumber value="${dto.buycount}" pattern="#,###.##"/>
+					
+					</b><br>
+					
+					
+					</td></tr>
+					
+					
+					<tr>
+					<td align="center">발주단위(Unitno)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.unitno}</b><br>
+					
+					
+					</td></tr>
+					
+					
+					<tr>
+					<td align="center">발주단가(Buycost)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.buycost}</b><br>
+					
+					
+					</td></tr>
+					
+					
+					
+					<tr>
+					<td align="center">발주금액(Buytotal)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.buytotal}</b><br>
+					
+					
+					</td></tr>
+					
+					
+					
+					<tr>
+					<td align="center">공급가액(Supplyprice)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.supplyprice}</b><br>
+					
+					
+					</td></tr>
+					
+					
+					
+					<tr>
+					<td align="center">세액(Tax)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.tax}</b><br>
+					
+					
+					</td></tr>
+					
+					
+					
+					<tr>
+					<td align="center">납기일자(Enterday)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.enterday}</b><br>
+					
+					
+					</td></tr>
+					
+					
+					
+					<tr>
+					<td align="center">메모(Memo)</td>
+				<td align="center">
+					
+					<b style="color: gray;">${dto.buymemo}</b><br>
+					
+					
+					</td></tr>
+					
 			
 	
 					
-				<%-- <hr>
-				
-				
-					<b style="color: black;">조회&nbsp;<b style="color: red;">[${dto.readcount}]</b></b>
-					 --%>
+			
 				
 					
 		
@@ -677,7 +780,7 @@
 				
 				
 				
-			<%-- 	<center>	
+				<center>	
 				
 				
 				
@@ -694,19 +797,19 @@
 						
 						
 						
-						<c:if test="${ext=='jpg' || ext=='JPG'|| ext=='gif'|| ext=='GIF'
+						<%-- <c:if test="${ext=='jpg' || ext=='JPG'|| ext=='gif'|| ext=='GIF'
 							|| ext=='png'|| ext=='PNG' || ext=='MP4' || ext=='jpeg' || ext=='JPEG'}">
 							<img src="${root}/save/${im}" style="max-width: 280px;max-height:280px;">
 							  	<br><br>		
 							  	
 							  	
 							  						  	
-						</c:if>	
+						</c:if>	 --%>
 						
 	</center>
 
 
-<center>
+<%-- <center>
 
 <video width="300" height="200" controls="controls">
        <source src="${root}/save/${im}" type="video/mp4">
@@ -720,18 +823,18 @@
      
      
      </center>
-     
+      --%>
   		
 				<center>	
 										  
 				 </c:forTokens>					
 			
 			
-			<c:if test="${sessionScope.m_id_.equals(dto.writer)}">
+			<c:if test="${sessionScope.m_id_.equals(dto.id)}">
 	
-			<c:if test="${dto.filename!='no'}">					
+			<c:if test="${dto.filename!='No File'}">					
 			<tr>
-			<td align="center">협력사사진(Image)</td>
+			<td align="center">첨부파일(File)</td>
 				<td align="center">
 				
 				
@@ -753,9 +856,9 @@
 			
 			<center>
 			
-			</c:if> --%>
+			</c:if>
 			
-				<%-- </c:if>	  --%>
+				</c:if>	 
 				
 		<%-- <tr>
 				<td colspan="2">
@@ -1008,6 +1111,9 @@
 			<!-- <tr>
 			<td align="center"><b style="color: gray;">실행</b></td>
 				<td align="center"> -->
+				
+		 
+				
 					<input type="button" value="글쓰기"  class="btn btn-primary"
 					 onclick="location.href='buywriteform.do'">
 					 <input type="button" value="목록"  class="btn btn-warning btn-sm"
@@ -1028,9 +1134,13 @@
 			</tr> -->
 			
 			
-			<br><br><br>
+			<br><br>
 			</center>
 		
+		</center>
+		</tbody>
+		</div>
+		</div>
 		
 		</table>
 		
@@ -1051,21 +1161,21 @@
 
 <br><br>
 		
-		
-		    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+	<%--    <!-- jQuery -->
+    <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
     <!-- FullCalendar -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="${root}/save/vendors/moment/min/moment.min.js"></script>
+    <script src="${root}/save/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="${root}/save/build/js/custom.min.js"></script> --%>
+    
     
     
     
@@ -1113,6 +1223,34 @@
 
     <!-- Custom Theme Scripts -->
     <script src="${root}/save/build/js/custom.min.js"></script>
+		
+		
+	<%-- <!-- jQuery -->
+    <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="${root}/save/vendors/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="${root}/save/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="${root}/save/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="${root}/save/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="${root}/save/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="${root}/save/vendors/pdfmake/build/vfs_fonts.js"></script> --%>
 		
 		
 	</body>

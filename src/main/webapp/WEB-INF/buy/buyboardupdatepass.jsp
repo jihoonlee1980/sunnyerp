@@ -82,7 +82,12 @@
   <link rel="stylesheet" href="${root}/save/vendors/morris.js/morris.css">
 
 
-
+	<!-- Datatables -->
+    <link href="${root}/save/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -244,32 +249,12 @@
 				alert("아이디를 입력해 주세요");
 				return false;
 			}
-			if(f.name.value==''){
-				alert("협력사명을 입력해 주세요");
+			if(f.vendorno.value==''){
+				alert("협력사 코드를 입력 또는 선택해 주세요");
 				return false;
 			}
-			if(f.address.value==''){
-				alert("협력사명 주소를 입력해 주세요");
-				return false;
-			}
-			if(f.phone.value==''){
-				alert("전화번호를 입력해 주세요");
-				return false;
-			}
-			if(f.faxno.value==''){
-				alert("팩스번호를 입력해 주세요");
-				return false;
-			}
-			if(f.email.value==''){
-				alert("이메일을 입력해 주세요");
-				return false;
-			}
-			if(f.companyno.value==''){
-				alert("사업자번호를 입력해 주세요");
-				return false;
-			}
-			if(f.sellvendor.value==''){
-				alert("공급처를 입력 또는 선택해 주세요");
+			if(f.buycodeno.value==''){
+				alert("발주 코드를 입력 또는 선택해 주세요");
 				return false;
 			}
 			if(f.buyvendor.value==''){
@@ -280,9 +265,29 @@
 				alert("수급처를 입력 또는 선택해 주세요");
 				return false;
 			}
+			if(f.goodsno.value==''){
+				alert("품목코드를 입력 또는 선택해 주세요");
+				return false;
+			}
+			if(f.buygoods.value==''){
+				alert("발주품명을 입력 또는 선택해 주세요");
+				return false;
+			}
+			if(f.buycount.value==''){
+				alert("발주수량을 입력해 주세요");
+				return false;
+			}
+			if(f.unitno.value==''){
+				alert("발주단위를 입력 또는 선택해 주세요");
+				return false;
+			}
+			if(f.buycost.value==''){
+				alert("발주단가를 입력 또는 선택해 주세요");
+				return false;
+			}
 			
-			if(f.f_id.value==''){
-				alert("파일을 선택해 주세요");
+			if(f.enterday.value==''){
+				alert("납기일자를 선택해 주세요");
 				return false;
 			} 
 			 
@@ -294,6 +299,25 @@
 		
 	</script>
 		
+		
+		
+	 <script type="text/javascript">
+
+
+
+$(function(){
+	
+	
+	flatpickr("#enterday");
+	
+});
+
+
+</script>	
+		
+		
+		 <link href="${root}/save/dist/flatpickr.min.css" rel="stylesheet" type="text/css">
+   <script src="${root}/save/dist/flatpickr.min.js"></script>	
 		
 		
 				
@@ -597,9 +621,13 @@
 		
 		
 		
- 		<table id="buyboardupdatepass" class="table table-bordered">
+ 		<!-- <table id="buyboardupdatepass" class="table table-bordered"> -->
+ 		<table id="buyboardupdatepass" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info">
  		
+ 	
  	<!-- 	<table id="file_table" class="table table-bordered"> -->
+ 		
+ 		 <tbody>
  		
  		 <tr>
  		 	<td align="center"><b style="color: gray;">등록자(Id)</b></td>
@@ -608,14 +636,24 @@
  		 		value="${sessionScope.m_id_}" readonly="readonly">
  		 	</td>
  		 </tr>
+ 		 
+ 		 
+ 		
  		 <tr>
- 		 	<td align="center"><b style="color: gray;">등록자명(Name)</b></td>
+ 		 	<td align="center"><b style="color: gray;">등록자이름(Name)</b></td>
  		 	<td align="center">
- 		 		<input type="text" name="name" id="name" required="required" class="form-control"
+ 		 		<input type="text" name="name" id="name" required="required" class="form-control" 
  		 		value="${sessionScope.m_nick}" readonly="readonly">
  		 	</td>
  		 </tr>
- 		 
+ 		
+ 		<%--  <tr>
+ 		 	<td align="center"><b style="color: gray;">회사이름(Companyname)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="companyname" id="companyname" required="required" class="form-control"
+ 		 		value="${sessionScope.m_level}" readonly="readonly">
+ 		 	</td>
+ 		 </tr> --%>
  		 
  		 
  		 
@@ -635,8 +673,8 @@
  		 </tr> -->
  		 
  		 
- 		<!--  
- 		 <tr>
+ 		 
+ 		 <!-- <tr>
 					<td align="center"><b style="color: gray;">성별(Gender)</b></td>
 				<td align="center">
 		<input type="text" name="gender" id="gender" class="form-control" required="required" placeholder="직접입력 또는 성별선택">
@@ -652,72 +690,114 @@
 	</td>
 		</tr> -->
  		 
- 		 <tr>
- 		 	<td align="center"><b style="color: gray;">협력사명(Companyname)</b></td>
+ 		   <tr>
+ 		 	<td align="center"><b style="color: gray;">협력사코드(Vendorno)</b></td>
  		 	<td align="center">
- 		 		<input type="text" name="companyname" id="companyname" required="required" class="form-control"
- 		 		placeholder="협력사명(한글 또는 영문)" value="${vendordto.companyname}">
+ 		 		<input type="text" name="vendorno" id="vendorno" required="required" class="form-control" 
+ 		 		placeholder="협력사코드 정보에서 선택 (*리스트박스 연계/구현)" value="${buydto.vendorno}">
  		 	</td>
  		 </tr>
- 		  <tr>
- 		 	<td align="center"><b style="color: gray;">협력사주소(Address)</b></td>
+			<tr>
+ 		 	<td align="center"><b style="color: gray;">발주코드(Buycodeno)</b></td>
  		 	<td align="center">
- 		 		<input type="text" name="address" id="address" required="required" class="form-control"
- 		 		placeholder="신주소, 도로명 포함  예 ) 광주광역시 광산구 수등로 94번길 31" value="${vendordto.address}">
- 		 	</td>
- 		 </tr>
- 		 <tr>
- 		 	<td align="center"><b style="color: gray;">전화번호(Phone)</b></td>
- 		 	<td align="center">
- 		 		<input type="text" name="phone" id="phone" required="required" class="form-control"
- 		 		placeholder="예 ) 02-123-4567" value="${vendordto.hp}">
+ 		 		<input type="text" name="buycodeno" id="buycodeno" required="required" class="form-control"
+ 		 		placeholder="발주 (*코드번호 채번 또는 기존 발주코드 사용)" value="${buydto.buycodeno}">
  		 	</td>
  		 </tr>
  		 <tr>
- 		 	<td align="center"><b style="color: gray;">팩스번호(Fax)</b></td>
- 		 	<td align="center">
- 		 		<input type="text" name="faxno" id="faxno" required="required" class="form-control"
- 		 		placeholder="예 ) 02-123-4567" value="${vendordto.faxno}">
- 		 	</td>
- 		 </tr>
- 		 <tr>
- 		 	<td align="center"><b style="color: gray;">이메일(Email)</b></td>
- 		 	<td align="center">
- 		 		<input type="text" name="email" id="email" required="required" class="form-control"
- 		 		placeholder="예) sunnyfactory@factorysunny.com" value="${vendordto.email}">
- 		 	</td>
- 		 </tr>
- 		 
- 		 
- 		  <tr>
- 		 	<td align="center"><b style="color: gray;">사업자등록번호(Companyno)</b></td>
- 		 	<td align="center">
- 		 		<input type="text" name="companyno" id="companyno" required="required" class="form-control"
- 		 		placeholder="예 ) 123-45-67890" value="${vendordto.companyno}">
- 		 	</td>
- 		 </tr>
- 		 
- 		 <tr>
- 		 	<td align="center"><b style="color: gray;">공급처(sellvendor)</b></td>
- 		 	<td align="center">
- 		 		<input type="text" name="sellvendor" id="sellvendor" required="required" class="form-control"
- 		 		placeholder="예) 직접입력 또는 공급처 새창에서 선택" value="${vendordto.sellvendor}">
- 		 	</td>
- 		 </tr>
- 		 <tr>
- 		 	<td align="center"><b style="color: gray;">발주처(buyvendor)</b></td>
+ 		 	<td align="center"><b style="color: gray;">발주처(Buyvendor)</b></td>
  		 	<td align="center">
  		 		<input type="text" name="buyvendor" id="buyvendor" required="required" class="form-control"
- 		 		placeholder="직접입력 또는 발주처 새창에서 선택" value="${vendordto.buyvendor}">
+ 		 		placeholder="협력사 정보에서 선택 (*리스트박스 연계/구현)" value="${buydto.buyvendor}">
  		 	</td>
  		 </tr>
  		 <tr>
+ 		 	<td align="center"><b style="color: gray;">수급처(Productvendor)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="productvendor" id="productvendor" required="required" class="form-control"
+ 		 		placeholder="협력사 정보에서 선택 (*리스트박스 연계/구현)" value="${buydto.productvendor}">
+ 		 	</td>
+ 		 </tr>
+ 		  <tr>
+ 		 	<td align="center"><b style="color: gray;">품목코드(Goodsno)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="goodsno" id="goodsno" required="required" class="form-control"
+ 		 		placeholder="품목코드 정보에서 선택 (*리스트박스 연계/구현)" value="${buydto.goodsno}">
+ 		 	</td>
+ 		 </tr>  		 
+ 		  <tr>
+ 		 	<td align="center"><b style="color: gray;">발주품명(Buygoods)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="buygoods" id="buygoods" required="required" class="form-control"
+ 		 		placeholder="품목코드 정보에서 선택 또는 직접입력 (*리스트박스 연계/구현)" value="${buydto.buygoods}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">발주수량(Buycount)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="buycount" id="buycount" required="required" class="form-control"
+ 		 		placeholder="발주수량 입력" value="${buydto.buycount}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">발주단위(Unitno)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="unitno" id="unitno" required="required" class="form-control"
+ 		 		placeholder="단위 정보에서 선택 또는 직접입력 (*리스트박스 연계/구현)" value="${buydto.unitno}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">발주단가(Buycost)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="buycost" id="buycost" required="required" class="form-control"
+ 		 		placeholder="단가 정보에서 선택 또는 직접입력 (*리스트박스 연계/구현)" value="${buydto.buycost}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">발주금액(Buytotal)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="buytotal" id="buytotal" required="required" class="form-control"
+ 		 		placeholder="발주금액 자동계산 (발주수량*발주단가)" value="${buydto.buytotal}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">공급가액(Supplyprice)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="supplyprice" id="supplyprice" required="required" class="form-control"
+ 		 		placeholder="(발주금액/1.1)" value="${buydto.supplyprice}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">세액(Tax)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="tax" id="tax" required="required" class="form-control"
+ 		 		placeholder="[발주금액-(발주금액/1.1)]" value="${buydto.tax}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">납기일자(Enterday)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="enterday" id="enterday" required="required" class="form-control"
+ 		 		placeholder="납기일자 선택 (달력에서 선택)" value="${buydto.enterday}">
+ 		 	</td>
+ 		 </tr>
+ 		 <tr>
+ 		 	<td align="center"><b style="color: gray;">메모(Memo)</b></td>
+ 		 	<td align="center">
+ 		 		<input type="text" name="buymemo" id="buymemo" class="form-control"
+ 		 		placeholder="1,000자  이내로 비고사항" value="${buydto.buymemo}">
+ 		 	</td>
+ 		 </tr>
+ 		 
+ 		 
+ 		 
+ 		 <%-- <tr>
  		 	<td align="center"><b style="color: gray;">수급처(productvendor)</b></td>
  		 	<td align="center">
  		 		<input type="text" name="productvendor" id="productvendor" required="required" class="form-control"
  		 		placeholder="직접입력 또는 수급처 새창에서 선택" value="${vendordto.productvendor}">
  		 	</td>
- 		 </tr>
+ 		 </tr> --%>
  		 
  		 
  		
@@ -811,29 +891,26 @@
  		 	</td>
  		 </tr> -->
          <tr>
-         <%--  <td align="center"><b style="color: gray;">협력사사진(image)</b></td>
+          <td align="center"><b style="color: gray;">첨부파일(File)</b></td>
           
           <td align="center">
           
            <input name="upfile" type="file" id="f_id" class="form-control" required="required" readonly="readonly">
          
          	<h5><a style="color: black;">
-         	<br>1. 업로드는  이미지파일 한정
-         	<br>2. 파일제목은 영문으로 
-         	<br>3. 특수문자포함 안됨 
-         	<br>4. 100M이하 용량<br>
+         	<br>1. 업로드는  문서파일(pdf, xlsx, ppt, hwp 등) 한정
+         	<br>2. 100M이하 용량<br>
          	<br>파일만 업로드 가능합니다.</a></h5>
          	<h5>
-         	<a style="color: blue;">5. 업데이트 시, <br>파일은 기존 파일이 유지됩니다.</a><br>
-         	<br><a style="color: red;">6. 파일 변동 시, <br>글삭제 후 재작성 해주세요.</a><br></h5>
+         	<a style="color: blue;">3. 업데이트 시, <br>파일은 기존 파일이 유지됩니다.</a><br>
+         	<br><a style="color: red;">4. 파일 변동 시, <br>글삭제 후 재작성 해주세요.</a><br></h5>
          
-         		<input type="submit" value="업로드" class="btn btn-primary">    
+         		<%-- <input type="submit" value="업로드" class="btn btn-primary">    
          		<input type="button" value="목록"  class="btn btn-warning btn-sm"
 					 onclick="location.href='list.do?pageNum=${pageNum}'">
-				<input type="hidden" name="m_id" value="${sessionScope.m_id_}">	 
-			</td> --%>
-				
-         	   <input type="hidden" name="num" value="${num}">
+				<input type="hidden" name="m_id" value="${sessionScope.m_id_}">	 --%>
+
+				  <input type="hidden" name="num" value="${num}">
 		 				<input type="hidden" name="pageNum" value="${pageNum}">
 		 				
 		 				
@@ -841,6 +918,19 @@
          		<input type="button" value="목록"  class="btn btn-warning btn-sm"
 					 onclick="location.href='list.do?pageNum=${pageNum}'">
 				<input type="hidden" name="m_id" value="${sessionScope.m_id_}">	 
+
+			</td>
+			
+			
+				
+         	  <%--  <input type="hidden" name="num" value="${num}">
+		 				<input type="hidden" name="pageNum" value="${pageNum}">
+		 				
+		 				
+         		<input type="submit" value="업데이트" class="btn btn-primary">    
+         		<input type="button" value="목록"  class="btn btn-warning btn-sm"
+					 onclick="location.href='list.do?pageNum=${pageNum}'">
+				<input type="hidden" name="m_id" value="${sessionScope.m_id_}">	  --%>
          	
          	
          <!--  <td>
@@ -858,6 +948,8 @@
 					 onclick="location.href='list.do?pageNum=${pageNum}'">
          	</td>
          </tr> --%>
+         
+         </tbody>
       </table>  
       
       
@@ -868,10 +960,7 @@
 
 </c:if>
 
-
-
-
-
+<br><br>
 
 <center>
 
@@ -884,22 +973,21 @@
 <br><br>
 
 
-   <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+  <%--    <!-- jQuery -->
+    <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
     <!-- FullCalendar -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="${root}/save/vendors/moment/min/moment.min.js"></script>
+    <script src="${root}/save/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
-    
-    
+    <script src="${root}/save/build/js/custom.min.js"></script>
+     --%>
     
      
     
@@ -945,6 +1033,36 @@
 
     <!-- Custom Theme Scripts -->
     <script src="${root}/save/build/js/custom.min.js"></script>
+
+
+	
+	<%-- <!-- jQuery -->
+    <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="${root}/save/vendors/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="${root}/save/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="${root}/save/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="${root}/save/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="${root}/save/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="${root}/save/vendors/pdfmake/build/vfs_fonts.js"></script> --%>
+	
 
 
 	</body>

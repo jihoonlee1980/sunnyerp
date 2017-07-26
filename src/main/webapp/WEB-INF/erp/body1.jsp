@@ -90,6 +90,14 @@
   <link rel="stylesheet" href="${root}/save/vendors/morris.js/morris.css">
     
     
+     <!-- Datatables -->
+    <link href="${root}/save/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    
+    
     <style>
     canvas{
       -moz-user-select: none;
@@ -942,20 +950,20 @@ $(function(){
 
       
 
-      <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+   <%--  <!-- jQuery -->
+    <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
     <!-- FullCalendar -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="${root}/save/vendors/moment/min/moment.min.js"></script>
+    <script src="${root}/save/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="${root}/save/build/js/custom.min.js"></script> --%>
     
     
     

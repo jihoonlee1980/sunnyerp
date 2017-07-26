@@ -85,7 +85,34 @@
   <link rel="stylesheet" href="${root}/save/vendors/morris.js/lib/example.css">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
   <link rel="stylesheet" href="${root}/save/vendors/morris.js/morris.css">
+  
+  
+  
+  <!-- Datatables -->
+    <link href="${root}/save/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="${root}/save/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  
 
+<%--  <script type="text/javascript">
+
+
+
+$(function(){
+	
+	
+	flatpickr("#enterday");
+	
+});
+
+
+</script>
+
+
+ <link href="${root}/save/dist/flatpickr.min.css" rel="stylesheet" type="text/css">
+   <script src="${root}/save/dist/flatpickr.min.js"></script> --%>
 
 
 </head>
@@ -395,8 +422,8 @@
 	  
 	  
 	  <div style="width: 60%;text-align: center;">
-	  	<input type="button" class="btn btn-info btn-sm" value="협력사정보 등록(수정)"
-	  	  onclick="location.href='vendorwriteform.do'">
+	  	<input type="button" class="btn btn-info btn-sm" value="구매발주 등록"
+	  	  onclick="location.href='buywriteform.do'">
 	  </div>
 	  
 	   <br><br>
@@ -629,13 +656,15 @@ else
 	  
 	  
 	  
+	  <br>
+	  
 	<c:if test="${sessionScope.m_id_==sessionScope.m_id_}">
 	  
 
 	  
 	  <center>
 	  
-	  <table class="table table-bordered table-hover">
+	  <table id="file_table" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info">
 	  	<!-- <tr style="text-align: center;">
 	  		<td><b style="color: black;">번호</b></td>
 	  		<td><b style="color: black;">분류</b></td>
@@ -650,114 +679,194 @@ else
 	  	</c:if>
 	  	
 	  	
-	  	<c:if test="${totalCount>0}">
+	  
+	  	   
+	  	   
+	  	 
+	  	   
+	  	   
+	  	   <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                  <%--   <center>
+                    <h2>구매발주 <small>구매발주입력</small></h2>
+                    </center> --%>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                        <!-- <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul> -->
+                      </li>
+                     <!--  <li><a class="close-link"><i class="fa fa-close"></i></a> -->
+                   
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+		
+		
+		<center>
+		 <div class="x_content">
+                 <!--    <p class="text-muted font-13 m-b-30">
+                      The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
+                    </p> -->
+		
+		<div id="datatable-buttons_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+		<div class="dt-buttons btn-group">
+		<a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Copy</span></a>
+		<a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>CSV</span></a>
+		<a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Print</span></a></div>
+		<!-- <div id="datatable-buttons_filter" class="dataTables_filter">
+		<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div> -->
+		<!-- <table id="datatable-buttons" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info" style="width: 1031px;"> -->
+                     <!--  <thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" style="width: 158px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" style="width: 251px;" aria-label="Position: activate to sort column ascending">Position</th></tr>
+                      </thead> -->
+  
+
+          </div>     
+          
+          <br>
+          
+           <center>
+          
+           <div id="datatable-buttons_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div> 
+                 
+             </center>    
+                   
+                   
+              </div>
+              
+             
+            
+          <!--  <div id="datatable-buttons_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div>  -->
+             </center>      
+		
+		
+		
+		
+		<table id="file_table" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info">
+ 		<!-- <table id="file_table" class="table table-bordered"> -->
+ 		
+ 		<center>
+ 		<thead>
+                        <tr role="row">
+                     
+                        <th style="text-align: center;" class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-sort="ascending" aria-label="Name: activate to sort column descending">No</th>
+                      <!--   <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">등록자</th> -->
+                        <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">품목코드</th>
+                        <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">발주품명</th>
+                       <!--  <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">발주수량</th> -->
+                        <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">등록일자</th>                     
+                       <!--  <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">첨부파일</th>                      -->
+                        </tr>
+                      </thead>
+ 		</center>
+ 		
+ 		
+ 			<c:if test="${totalCount>0}">
 	  	   <c:forEach var="a" items="${list}">
+ 		
+ 		 <tbody>
 	  	   
 	  	   
-	  	   <br><br>
 	  	
 	  	   	 <tr>
-	  	   	 	<b style="color: brown;">No. ${no}</b><br>
+	  	   	 
+	  	   	 
+	  	   	 	<td style="text-align: center;"><b style="color: brown;">${no}</b></td>
 	  	   	 	<c:set value="${no-1}" var="no"/>
 	  	   	 	<%-- <b style="color: orange;">${a.category}</b><br> --%>
-	  	   	 	<br>
+	  	   	 
 	  	   	 	
 	  	   	 	
-	  	   	 	<a href="content.do?num=${a.num}&pageNum=${currentPage}">
 	  	   	 	
-	  	   	 	등록(수정)자 : <b style="color:gray">${a.id}&nbsp;[${sessionScope.m_nick}]</b><br>
+	  	   	 	
+	  	   	 <%-- 	<td style="text-align: center;">
+	  	   	 	 <b style="color:gray">${a.id}&nbsp;[${sessionScope.m_nick}]</b></td> --%>
 	  	   	 	
 	  	   	 	<!-- <span style="color: gray;text-overflow:ellipsis;overflow: hidden;
 				 white-space: nowrap;display: block;max-width: 200px;"> -->
 	  	   	 	
 	  	   	 		
-	  	   	 		
-	  	   	 		
-	  	   	 		
-	  	   	 		
-	  	   	 	<!-- 	</span> -->
-	  	   	 		
-	  	   	 		<center>
-                                	
-     						<br><br>	
-     							<%-- 	<video width=300" height="200" controls="controls">
-       <source src="${root}/save/${a.filename}" type="video/mp4">
-     
-     </video> --%>
-     				 <%-- <img src="${root}/save/${a.filename}" style="max-width: 280px;max-height:280px;"> --%>
-     				
-	  	   	 		
-	  	   	 		
-	  	   	 		</a>
-	  	   	 		
-	  	   	 <br><br><br>
 	  	   	 
+	  	   	
+	  	   	<td style="text-align: center;">
+	  	   	<a href="content.do?num=${a.num}&pageNum=${currentPage}">
 	  	   	 
-	  	   	 	등록(수정)일자 :
+	  	   	 	<!-- <b style="color:navy"> --> ${a.buycodeno}
+	  	   	 	
+	  	   	 	</a>
+	  	   	 	</td>
+	  	   	 	
+	  	   	 	
+	  	   	 	
+	  	   	 	<td style="text-align: center;">
+	  	   
+	  	   	 <a href="content.do?num=${a.num}&pageNum=${currentPage}">
+	  	   	 	<!-- <b style="color:blue;"> --> ${a.buygoods}
+	  	   	 	</a>
+	  	   	
+	  	   	 	</td>
+	  	   	 	
+	  	   	 	
+	  	   	 	
+	  	   	 	<%-- <td style="text-align: right;">
+	  	   
+	  	   	 
+	  	   	 	
+	  	   	 	<b style="color:brown">
+	  	   	 	
+	  	   	 	
+	  	   	 	<fmt:formatNumber value="${a.buycount}" pattern="#,###.##"/>
+	  	   	 	 
+	  	   	 	 
+	  	   	 	 </b>
+	  	   	 	
+	  	   	 	
+	  	   	 	</td> --%>
+	  	   	 		
+	  	   	 		 
+	  	   	 		 
+	  	   	 	
+	  	   	 	<td style="text-align: center;">	 
+	  	   	 		 
+	  	   	 		 	
 	  	   	 		<b style="color:gray"><fmt:formatDate value="${a.gaipday}" pattern="yyyy-MM-dd HH:mm:ss"/></b>
+	  	   	 		 </td>
+	  	   	 	
+	  	   	 		 
+	  	   	 		 
+	  	   	 		 
+	  	   	 <%-- 	<td style="text-align: center;">	 
+	  	   	 		 
+	  	   	 		 	
+	  	   	 		<b style="color:blue"> ${a.filename}</b>
+	  	   	 		 </td>	  --%>
 	  	   	 
-	  	   	 	<br><br><br>
 	  	   	 
-	  	   	 	협력사명 :<b style="color:gray"> ${a.companyname}</b><br>
 	  	   	 	
-	  	   	 	
-	  	   	 		 <br><br>
-	  	   	 		 
-	  	   	 		 
-	  	   	 	
-	  	   	 		 
-	  	   	 		 
-	  	   	 	<%-- 협력사주소 : <b style="color:gray">${a.address}</b><br>
-	  	   	 	
-	  	   	 	
-	  	   	 		 <br><br>	 
-	  	   	 		 
-	  	   	 		 
-	  	   	 	전화번호 : <b style="color:gray">${a.phone}</b><br>
-	  	   	 	
-	  	   	 	
-	  	   	 		 <br><br>	
-	  	   	 		 
-	  	   	 		 
-	  	   	 		 
-	  	   	 	팩스번호 : <b style="color:gray">${a.faxno}</b><br>
-	  	   	 	
-	  	   	 	
-	  	   	 		 <br><br>	 	  
-	  	   	 		 	 	 
-	  	   	 	이메일 : <b style="color:gray">${a.email}</b><br>
-	  	   	 	
-	  	   	 	
-	  	   	 		 <br><br>
-	  	   	 	
-	  	   	 	
-	  	   	 	사업자등록번호 : <b style="color:gray">${a.companyno}</b><br>
-	  	   	 	
-	  	   	 	
-	  	   	 		 <br><br> --%>	 
-	  	   	 		 
-	  	   	 		 
-	  	   	 		 
-	  	   	 		
-	  	   	 		 
-	  	   	 	<!-- <hr class="small">
-	  	   	 	
-	  	   	 	
-	  	   	 		<br><br> -->
-	  	   	 		
-	  	   	 <%-- 	<b style="color: black;">조회&nbsp;<b style="color: red;">[${a.readcount}]</b></b><br>	
-	  	   	 		
-	  	   	 	<br> --%>
-	  	   	 	
+	  	   	 
 	  	   	
 	  	   </c:forEach>
-	  	   <br>
+	  	
 	  	   
 	  	</c:if>
-	  </table>
-	
-	  
-	  </center>
+	   </tbody>
+      </table>  
+      
+      
+   <!--    <div class="dataTables_paginate paging_simple_numbers" id="datatable-buttons_paginate"><ul class="pagination"><li class="paginate_button previous" id="datatable-buttons_previous"><a href="#" aria-controls="datatable-buttons" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button active"><a href="#" aria-controls="datatable-buttons" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="datatable-buttons_next"><a href="#" aria-controls="datatable-buttons" data-dt-idx="7" tabindex="0">Next</a></li></ul></div>
+       -->
+      </div>
+      </div>
+   </div>
 	  
 	  </c:if>
 	  
@@ -774,7 +883,7 @@ else
 	  
 	  </center> --%>
 	  
-	  
+	  <br><br>
 
 	  
 	  <center>
@@ -787,24 +896,24 @@ else
 
 
 
-<br><br><br><br>
+<br><br><br>
 
 	  
 	  
-      <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+   <%--    <!-- jQuery -->
+    <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
     <!-- FullCalendar -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="${root}/save/vendors/moment/min/moment.min.js"></script>
+    <script src="${root}/save/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="${root}/save/build/js/custom.min.js"></script> --%>
     
     
     
@@ -852,6 +961,34 @@ else
 
     <!-- Custom Theme Scripts -->
     <script src="${root}/save/build/js/custom.min.js"></script>
+	  
+	  
+	<%--  <!-- jQuery -->
+    <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="${root}/save/vendors/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="${root}/save/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="${root}/save/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="${root}/save/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="${root}/save/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="${root}/save/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="${root}/save/vendors/pdfmake/build/vfs_fonts.js"></script> --%>
 	  
 	  	
 	</body>
