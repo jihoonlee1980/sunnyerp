@@ -27,8 +27,9 @@ public class download extends HttpServlet {
 		  String path=getServletContext().getRealPath("/save");
 		  String filename = new String(
 		    request.getParameter("clip").getBytes("8859_1"),"utf-8");
-		  File file = new File(path + "\\" + filename);
+		  File file = new File(path + "/" + filename);
 		  System.out.println("파일경로 : " + file);
+		
 		  setHeaderType(response, file);     //파일이름설정
 		  transport(new FileInputStream(file), response.getOutputStream(), 
 		            file);                       //파일전송(다운로드)

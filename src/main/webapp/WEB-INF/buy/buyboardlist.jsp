@@ -96,23 +96,87 @@
     <link href="${root}/save/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
   
 
-<%--  <script type="text/javascript">
+		
+		
+		
+		<!-- MeadCo ScriptX --> 
+
+<object id=factory style="display:none" 
+
+classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" 
+
+codebase="http://www.meadroid.com/scriptx/ScriptX.cab#Version=6,1,429,14"> 
+
+</object> 
+
+
+<script type="text/javascript">
+		var fnPrint = function() {
+			var strFeature = "";
+			strFeature += "width=100%, height=100%, all=no";
+
+			 window.print();
+			 wondow.close();
+			/* var objWin = window.open('', 'print', strFeature);
+			objWin.document.write("<table width='100%' border='1'>");
+			objWin.document.write("<tr>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectA.value);
+			objWin.document.write("</td>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectB.value);
+			objWin.document.write("</td>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectC.value);
+			objWin.document.write("</td>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectD.value);
+			objWin.document.write("</td>");
+			objWin.document.write("</tr>");
+			objWin.document.write("</table>");
+			objWin.document.close();
+
+			objWin.print();
+			objWin.close(); */
+			
+			
+			
+		};
+	</script>
 
 
 
-$(function(){
-	
-	
-	flatpickr("#enterday");
-	
-});
+ <script type="text/javascript">
+
+
+ function printWindow() { 
+
+	 factory.printing.header = "This is MeadCo" 
+
+	 factory.printing.footer = "Printing by ScriptX 5.x" 
+
+	 factory.printing.portrait = false 
+
+	 factory.printing.leftMargin = 1.0 
+
+	 factory.printing.topMargin = 1.0 
+
+	 factory.printing.rightMargin = 1.0 
+
+	 factory.printing.bottomMargin = 1.0 
+
+	 factory.printing.Print(false, window) 
+
+	 } 
+
 
 
 </script>
 
 
+
  <link href="${root}/save/dist/flatpickr.min.css" rel="stylesheet" type="text/css">
-   <script src="${root}/save/dist/flatpickr.min.js"></script> --%>
+   <script src="${root}/save/dist/flatpickr.min.js"></script>
 
 
 </head>
@@ -407,7 +471,7 @@ $(function(){
 	<c:if test="${totalCount>0}">
 		<a style="color: gray;">총</a> <b style="color: red;">${totalCount}</b><a style="color: gray;"> 개의 데이타가 있습니다.</a>
 		
-<br><br>	
+<br>	
 		
 	  </c:if>	
 	  
@@ -426,7 +490,7 @@ $(function(){
 	  	  onclick="location.href='buywriteform.do'">
 	  </div>
 	  
-	   <br><br>
+	   <br>
 	  
 	<%--   
 	  <br><br>
@@ -720,7 +784,7 @@ else
 		<div class="dt-buttons btn-group">
 		<a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Copy</span></a>
 		<a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>CSV</span></a>
-		<a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Print</span></a></div>
+		<a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons" onclick="fnPrint()"><span>Print</span></a>
 		<!-- <div id="datatable-buttons_filter" class="dataTables_filter">
 		<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div> -->
 		<!-- <table id="datatable-buttons" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info" style="width: 1031px;"> -->
@@ -738,6 +802,13 @@ else
           
            <div id="datatable-buttons_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div> 
                  
+                 
+                 <br><br>
+                 
+                 *[PC]환경에서 가능.
+                 
+                 <br><br>
+                 
              </center>    
                    
                    
@@ -748,20 +819,48 @@ else
           <!--  <div id="datatable-buttons_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div>  -->
              </center>      
 		
+		  <div class="table-responsive">
 		
 		
-		
-		<table id="file_table" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info">
+		<table id="file_table" class="table table-striped jambo_table bulk_action" role="grid" aria-describedby="datatable-buttons_info">
  		<!-- <table id="file_table" class="table table-bordered"> -->
+ 		
+ 		
+ 		
+ 		<!-- <div class="col-sm-6"><div class="dataTables_length" id="datatable-checkbox_length"><label>Show <select name="datatable-checkbox_length" aria-controls="datatable-checkbox" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div>
+ 		<div class="dataTables_length" id="datatable-checkbox_length"><label>Show <select name="datatable-checkbox_length" aria-controls="datatable-checkbox" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div> -->
+ 	
+ 		<!-- <label>Show <select name="datatable-checkbox_length" aria-controls="datatable-checkbox" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label> 	 -->	
+ 	
+ 	
+ 		<!-- 
+ 		</div>
+ 		</div> -->
+ 		
+ 		
+ 		<!-- <select name="datatable-checkbox_length" aria-controls="datatable-checkbox" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> -->
+ 		
+ 		
+ 		
+ 		
  		
  		<center>
  		<thead>
-                        <tr role="row">
+                        <tr class="even pointer">
                      
-                        <th style="text-align: center;" class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-sort="ascending" aria-label="Name: activate to sort column descending">No</th>
+                     	  
+						 <th style="text-align: center;" class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-sort="ascending" aria-label="Name: activate to sort column descending">
+						
+						 <input type="checkbox" id="check-all" class="flat" name="table_records">
+						 
+						 </th>
+                     
+                  
+                     
+                       <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">No</th>
                       <!--   <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">등록자</th> -->
                         <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">품목코드</th>
-                        <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">발주품명</th>
+                        <!-- <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">발주품명</th> -->
                        <!--  <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">발주수량</th> -->
                         <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">등록일자</th>                     
                        <!--  <th style="text-align: center;" class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">첨부파일</th>                      -->
@@ -778,6 +877,15 @@ else
 	  	   
 	  	
 	  	   	 <tr>
+	  	   	 
+	  	   	 
+	  	   	 
+	  	   	 <td style="text-align: center;"><b style="color: brown;">
+							<input type="checkbox" id="check-all" class="flat" name="table_records">
+						  </b>
+						  
+						  </td>
+	  	   	 
 	  	   	 
 	  	   	 
 	  	   	 	<td style="text-align: center;"><b style="color: brown;">${no}</b></td>
@@ -807,13 +915,13 @@ else
 	  	   	 	
 	  	   	 	
 	  	   	 	
-	  	   	 	<td style="text-align: center;">
+	  	   	 	<%-- <td style="text-align: center;">
 	  	   
 	  	   	 <a href="content.do?num=${a.num}&pageNum=${currentPage}">
 	  	   	 	<!-- <b style="color:blue;"> --> ${a.buygoods}
 	  	   	 	</a>
 	  	   	
-	  	   	 	</td>
+	  	   	 	</td> --%>
 	  	   	 	
 	  	   	 	
 	  	   	 	
@@ -833,7 +941,6 @@ else
 	  	   	 	</td> --%>
 	  	   	 		
 	  	   	 		 
-	  	   	 		 
 	  	   	 	
 	  	   	 	<td style="text-align: center;">	 
 	  	   	 		 
@@ -843,15 +950,12 @@ else
 	  	   	 	
 	  	   	 		 
 	  	   	 		 
-	  	   	 		 
 	  	   	 <%-- 	<td style="text-align: center;">	 
 	  	   	 		 
 	  	   	 		 	
 	  	   	 		<b style="color:blue"> ${a.filename}</b>
 	  	   	 		 </td>	  --%>
 	  	   	 
-	  	   	 
-	  	   	 	
 	  	   	 
 	  	   	
 	  	   </c:forEach>
@@ -860,7 +964,7 @@ else
 	  	</c:if>
 	   </tbody>
       </table>  
-      
+      </div>
       
    <!--    <div class="dataTables_paginate paging_simple_numbers" id="datatable-buttons_paginate"><ul class="pagination"><li class="paginate_button previous" id="datatable-buttons_previous"><a href="#" aria-controls="datatable-buttons" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button active"><a href="#" aria-controls="datatable-buttons" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-buttons" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="datatable-buttons_next"><a href="#" aria-controls="datatable-buttons" data-dt-idx="7" tabindex="0">Next</a></li></ul></div>
        -->
@@ -883,6 +987,9 @@ else
 	  
 	  </center> --%>
 	  
+
+
+
 	  <br><br>
 
 	  
@@ -961,6 +1068,23 @@ else
 
     <!-- Custom Theme Scripts -->
     <script src="${root}/save/build/js/custom.min.js"></script>
+	  
+	  
+	  
+	   <!-- jQuery -->
+   <%--  <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="${root}/save/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
+    <!-- FullCalendar -->
+    <script src="${root}/save/vendors/moment/min/moment.min.js"></script>
+    <script src="${root}/save/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="${root}/save/build/js/custom.min.js"></script>  --%>
 	  
 	  
 	<%--  <!-- jQuery -->

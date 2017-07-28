@@ -97,6 +97,242 @@
 
 
 
+<script type="text/javascript">
+		var fnPrint = function() {
+			var strFeature = "";
+			strFeature += "width=100%, height=100%, all=no";
+
+			 window.print();
+			 wondow.close();
+			/* var objWin = window.open('', 'print', strFeature);
+			objWin.document.write("<table width='100%' border='1'>");
+			objWin.document.write("<tr>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectA.value);
+			objWin.document.write("</td>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectB.value);
+			objWin.document.write("</td>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectC.value);
+			objWin.document.write("</td>");
+			objWin.document.write("<td>");
+			objWin.document.write(selectD.value);
+			objWin.document.write("</td>");
+			objWin.document.write("</tr>");
+			objWin.document.write("</table>");
+			objWin.document.close();
+
+			objWin.print();
+			objWin.close(); */
+			
+			
+			
+		};
+	</script>
+
+
+
+
+
+
+<!-- <script type="text/javascript">
+    window.print();
+</script> -->
+
+
+	<!-- <script type="text/javascript">
+		var fnPrint = function() {
+			document.body.innerHTML = selectArea.innerHTML;
+			window.print();
+		};
+	</script> -->
+
+
+
+
+
+<!-- <script type="text/javascript">
+
+
+/*!
+ * Print button for Buttons and DataTables.
+ * 2016 SpryMedia Ltd - datatables.net/license
+ */
+
+(function( factory ){
+	if ( typeof define === 'function' && define.amd ) {
+		// AMD
+		define( ['jquery', 'datatables.net', 'datatables.net-buttons'], function ( $ ) {
+			return factory( $, window, document );
+		} );
+	}
+	else if ( typeof exports === 'object' ) {
+		// CommonJS
+		module.exports = function (root, $) {
+			if ( ! root ) {
+				root = window;
+			}
+
+			if ( ! $ || ! $.fn.dataTable ) {
+				$ = require('datatables.net')(root, $).$;
+			}
+
+			if ( ! $.fn.dataTable.Buttons ) {
+				require('datatables.net-buttons')(root, $);
+			}
+
+			return factory( $, root, root.document );
+		};
+	}
+	else {
+		// Browser
+		factory( jQuery, window, document );
+	}
+}(function( $, window, document, undefined ) {
+'use strict';
+var DataTable = $.fn.dataTable;
+
+
+var _link = document.createElement( 'a' );
+
+/**
+ * Convert a `link` tag's URL from a relative to an absolute address so it will
+ * work correctly in the popup window which has no base URL.
+ *
+ * @param  {node}     el Element to convert
+ */
+var _relToAbs = function( el ) {
+	var url;
+	var clone = $(el).clone()[0];
+	var linkHost;
+
+	if ( clone.nodeName.toLowerCase() === 'link' ) {
+		_link.href = clone.href;
+		linkHost = _link.host;
+
+		// IE doesn't have a trailing slash on the host
+		// Chrome has it on the pathname
+		if ( linkHost.indexOf('/') === -1 && _link.pathname.indexOf('/') !== 0) {
+			linkHost += '/';
+		}
+
+		clone.href = _link.protocol+"//"+linkHost+_link.pathname+_link.search;
+	}
+
+	return clone.outerHTML;
+};
+
+
+DataTable.ext.buttons.print = {
+	className: 'buttons-print',
+
+	text: function ( dt ) {
+		return dt.i18n( 'buttons.print', 'Print' );
+	},
+
+	action: function ( e, dt, button, config ) {
+		var data = dt.buttons.exportData( config.exportOptions );
+		var addRow = function ( d, tag ) {
+			var str = '<tr>';
+
+			for ( var i=0, ien=d.length ; i<ien ; i++ ) {
+				str += '<'+tag+'>'+d[i]+'</'+tag+'>';
+			}
+
+			return str + '</tr>';
+		};
+
+		// Construct a table for printing
+		var html = '<table class="'+dt.table().node().className+'">';
+
+		if ( config.header ) {
+			html += '<thead>'+ addRow( data.header, 'th' ) +'</thead>';
+		}
+
+		html += '<tbody>';
+		for ( var i=0, ien=data.body.length ; i<ien ; i++ ) {
+			html += addRow( data.body[i], 'td' );
+		}
+		html += '</tbody>';
+
+		if ( config.footer && data.footer ) {
+			html += '<tfoot>'+ addRow( data.footer, 'th' ) +'</tfoot>';
+		}
+
+		// Open a new window for the printable table
+		var win = window.open( '', '' );
+		var title = config.title;
+
+		if ( typeof title === 'function' ) {
+			title = title();
+		}
+
+		if ( title.indexOf( '*' ) !== -1 ) {
+			title= title.replace( '*', $('title').text() );
+		}
+
+		win.document.close();
+
+		// Inject the title and also a copy of the style and link tags from this
+		// document so the table can retain its base styling. Note that we have
+		// to use string manipulation as IE won't allow elements to be created
+		// in the host document and then appended to the new window.
+		var head = '<title>'+title+'</title>';
+		$('style, link').each( function () {
+			head += _relToAbs( this );
+		} );
+
+		//$(win.document.head).html( head );
+		win.document.head.innerHTML = head; // Work around for Edge
+
+		// Inject the table and other surrounding information
+		win.document.body.innerHTML =
+			'<h1>'+title+'</h1>'+
+			'<div>'+config.message+'</div>'+
+			html;
+		// $(win.document.body).html(
+		// 	'<h1>'+title+'</h1>'+
+		// 	'<div>'+config.message+'</div>'+
+		// 	html
+		// );
+
+		if ( config.customize ) {
+			config.customize( win );
+		}
+
+		setTimeout( function () {
+			if ( config.autoPrint ) {
+				win.print(); // blocking - so close will not
+				win.close(); // execute until this is done
+			}
+		}, 250 );
+	},
+
+	title: '*',
+
+	message: '',
+
+	exportOptions: {},
+
+	header: true,
+
+	footer: false,
+
+	autoPrint: true,
+
+	customize: null
+};
+
+
+return DataTable.Buttons;
+}));
+
+
+
+</script> -->
+
+
 		<script type="text/javascript">
 		var idx=0;
 		function addFileForm(){
@@ -258,6 +494,51 @@
 		
 		
 	</script>
+	
+	
+	
+	<object id=factory style="display:none" 
+
+classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" 
+
+codebase="http://www.meadroid.com/scriptx/ScriptX.cab#Version=6,1,429,14"> 
+
+</object> 
+
+
+
+
+
+
+ <script type="text/javascript">
+
+
+ function printWindow() { 
+
+	 factory.printing.header = "This is MeadCo" 
+
+	 factory.printing.footer = "Printing by ScriptX 5.x" 
+
+	 factory.printing.portrait = false 
+
+	 factory.printing.leftMargin = 1.0 
+
+	 factory.printing.topMargin = 1.0 
+
+	 factory.printing.rightMargin = 1.0 
+
+	 factory.printing.bottomMargin = 1.0 
+
+	 factory.printing.Print(false, window) 
+
+	 } 
+
+
+
+</script>
+	
+	
+	
 	</head> 
 	<body>
 	
@@ -506,6 +787,12 @@
 	
 	<center>
 	
+	
+	<!--  <div class="table-responsive">
+		
+		
+		<table id="file_table" class="table table-striped jambo_table bulk_action" role="grid" aria-describedby="datatable-buttons_info"> -->
+	
 	<table id="file_table" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info">
 		
 		
@@ -543,9 +830,11 @@
 		
 		<div id="datatable-buttons_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 		<div class="dt-buttons btn-group">
-		<a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Copy</span></a>
-		<a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>CSV</span></a>
-		<a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Print</span></a></div>
+		<a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="http://localhost:8080/spring_tiles_mybatis/buy/content.do?num=25&pageNum=1#"><span>Copy</span></a>
+		<a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="http://localhost:8080/spring_tiles_mybatis/buy/content.do?num=25&pageNum=1#"><span>CSV</span></a>
+		<a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons" onclick="fnPrint()"><span>Print</span></a>
+		
+		
 		<!-- <div id="datatable-buttons_filter" class="dataTables_filter">
 		<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div> -->
 		<!-- <table id="datatable-buttons" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info" style="width: 1031px;"> -->
@@ -553,6 +842,27 @@
                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" style="width: 158px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Name</th>
                         <th class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1" style="width: 251px;" aria-label="Position: activate to sort column ascending">Position</th></tr>
                       </thead> -->
+                      
+                      <br><br>
+                      <center>
+                      <br>
+			*[PC]환경에서 가능.
+			
+			<br><br>
+			
+		
+		<%-- <li><input type="text" id="selectA" value="${dto.gaipday}" /></li>
+		<li><input type="text" id="selectB" value="${dto.id}" /></li>
+		<li><input type="text" id="selectC" value="${dto.id}" /></li>
+		<li><input type="text" id="selectD" value="${dto.id}" /></li>
+	
+	
+	</ul> --%>
+			
+			
+			</center>
+			
+			</div>
 
           </div>              
               </div>
@@ -561,6 +871,10 @@
              </center>   
              
              
+             
+	
+         
+         
          
 		
 		<center>
@@ -569,6 +883,11 @@
                         <th class="sorting" tabindex="0" aria-controls="datatable-buttons" rowspan="1" colspan="1"  aria-label="Position: activate to sort column ascending">Sort</th></tr>
                       </thead>
  		</center>
+ 		
+ 		
+ 		
+ 		
+ 		
  		
  		 <tbody>
 		
@@ -579,6 +898,14 @@
 		
 		<br><br>
 		
+		
+		<ul id="selectArea">
+		
+
+     
+		
+		
+		
 		<tr>
 		<td align="center">등록일자(Date)</td>
 				<td align="center">
@@ -586,6 +913,8 @@
 		<b style="color: gray;">
 					 <fmt:formatDate value="${dto.gaipday}" pattern="yyyy-MM-dd HH:mm:ss"/></b>
 		</td></tr>
+	
+	
 	
 		
 		<tr>
@@ -696,7 +1025,12 @@
 					<td align="center">발주단가(Buycost)</td>
 				<td align="center">
 					
-					<b style="color: gray;">${dto.buycost}</b><br>
+					<b style="color: gray;">
+					
+					<fmt:formatNumber value="${dto.buycost}" pattern="#,###.##"/>
+					
+					</b><br>
+					
 					
 					
 					</td></tr>
@@ -707,7 +1041,12 @@
 					<td align="center">발주금액(Buytotal)</td>
 				<td align="center">
 					
-					<b style="color: gray;">${dto.buytotal}</b><br>
+					
+					<b style="color: gray;">
+					
+					<fmt:formatNumber value="${dto.buytotal}" pattern="#,###.##"/>
+					
+					</b><br>
 					
 					
 					</td></tr>
@@ -718,7 +1057,10 @@
 					<td align="center">공급가액(Supplyprice)</td>
 				<td align="center">
 					
-					<b style="color: gray;">${dto.supplyprice}</b><br>
+					<b style="color: gray;">
+					<fmt:formatNumber value="${dto.supplyprice}" pattern="#,###.##"/>
+					
+					</b><br>
 					
 					
 					</td></tr>
@@ -729,7 +1071,10 @@
 					<td align="center">세액(Tax)</td>
 				<td align="center">
 					
-					<b style="color: gray;">${dto.tax}</b><br>
+					<b style="color: gray;">
+					<fmt:formatNumber value="${dto.tax}" pattern="#,###.##"/>
+					
+					</b><br>
 					
 					
 					</td></tr>
@@ -830,7 +1175,7 @@
 				 </c:forTokens>					
 			
 			
-			<c:if test="${sessionScope.m_id_.equals(dto.id)}">
+		<%-- 	<c:if test="${sessionScope.m_id_.equals(dto.id)}"> --%>
 	
 			<c:if test="${dto.filename!='No File'}">					
 			<tr>
@@ -858,7 +1203,10 @@
 			
 			</c:if>
 			
-				</c:if>	 
+			
+		
+			
+				<%-- </c:if>	 --%> 
 				
 		<%-- <tr>
 				<td colspan="2">
@@ -1118,7 +1466,7 @@
 					 onclick="location.href='buywriteform.do'">
 					 <input type="button" value="목록"  class="btn btn-warning btn-sm"
 					 onclick="location.href='list.do?pageNum=${pageNum}'"> 
-					 
+					
 					 
 					<c:if test="${sessionScope.m_id_==dto.id}">
 					 
@@ -1225,7 +1573,7 @@
     <script src="${root}/save/build/js/custom.min.js"></script>
 		
 		
-	<%-- <!-- jQuery -->
+<%-- 	<!-- jQuery -->
     <script src="${root}/save/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="${root}/save/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -1234,7 +1582,7 @@
     <!-- NProgress -->
     <script src="${root}/save/vendors/nprogress/nprogress.js"></script>
     <!-- iCheck -->
-    <script src="${root}/save/vendors/iCheck/icheck.min.js"></script>
+    <script src="${root}/save/vendors/iCheck/icheck.min.js"></script> --%>
     <!-- Datatables -->
     <script src="${root}/save/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="${root}/save/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -1250,7 +1598,9 @@
     <script src="${root}/save/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
     <script src="${root}/save/vendors/jszip/dist/jszip.min.js"></script>
     <script src="${root}/save/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="${root}/save/vendors/pdfmake/build/vfs_fonts.js"></script> --%>
+    <script src="${root}/save/vendors/pdfmake/build/vfs_fonts.js"></script>
+		
+		
 		
 		
 	</body>
